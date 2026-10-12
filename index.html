@@ -2,699 +2,810 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#100b16">
-<meta name="description" content="أهلًا بكم في مملكة الأميرة ليلي محمد">
-<title>مملكة الأميرة ليلي محمد 👑</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مملكة الأميرة ليلي محمد 👑💗</title>
 
-<style>
-:root {
-  --pink: #ff69b4;
-  --hot: #ff35a1;
-  --gold: #eac887;
-  --cream: #fff4e8;
-  --dark: #100b16;
-  --panel: #1d1424;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Tahoma, Arial, sans-serif;
-  background: var(--dark);
-  color: #fff5fc;
-  overflow-x: hidden;
-}
-button { font: inherit; cursor: pointer; }
-button:focus-visible, a:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
-}
-.hidden { display: none !important; }
+  <style>
+    :root {
+      --pink: #ff77a8;
+      --deep-pink: #e84e8a;
+      --light-pink: #fff0f6;
+      --gold: #d6ad55;
+      --purple: #9b6bd3;
+      --text: #633b50;
+      --white: #fff;
+    }
 
-/* الواجهة الخارجية */
-.cover {
-  min-height: 100svh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  position: relative;
-  overflow: hidden;
-  color: #63452f;
-  background:
-    radial-gradient(ellipse at top, #fffdf6 0%, transparent 58%),
-    linear-gradient(140deg, #f7e8d9, #efd2d2 55%, #f7e9d7);
-}
-.cover::before, .cover::after {
-  content: "✦";
-  position: absolute;
-  color: #bd9253;
-  font-size: 42px;
-  animation: float 4s ease-in-out infinite;
-}
-.cover::before { top: 10%; right: 10%; }
-.cover::after { bottom: 12%; left: 9%; animation-delay: 1s; }
-.cover-card {
-  width: min(100%, 460px);
-  padding: 25px;
-  text-align: center;
-  border: 1px solid #c7a46a;
-  border-radius: 28px;
-  background: #fff9f0d9;
-  box-shadow: 0 20px 65px #79512b20;
-  animation: rise 1s ease both;
-}
-.cover-photo {
-  width: 100%;
-  height: min(42vh, 330px);
-  object-fit: cover;
-  border-radius: 20px;
-  border: 2px solid #d8b878;
-  background: #ead9ca;
-}
-.cover-crown { font-size: 42px; margin: 12px 0 0; }
-.cover h1 {
-  font-size: clamp(29px, 8vw, 42px);
-  color: #93652d;
-  margin: 12px 0;
-}
-.cover p { line-height: 2; margin: 10px 0 20px; }
-.enter-btn {
-  border: 0;
-  border-radius: 50px;
-  padding: 15px 25px;
-  color: #fff;
-  background: linear-gradient(120deg, #b88746, #e4b7bd, #b88746);
-  box-shadow: 0 6px 25px #ad784c45;
-  transition: transform .25s, box-shadow .25s;
-}
-.enter-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px #ad784c70;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* المملكة */
-.kingdom {
-  min-height: 100vh;
-  background:
-    radial-gradient(ellipse at 50% 0%, #53204465, transparent 50%),
-    radial-gradient(circle at 10% 30%, #35152b60, transparent 28%),
-    #100b16;
-  position: relative;
-  isolation: isolate;
-}
-.kingdom::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background: radial-gradient(ellipse at center, transparent 25%, #0008 100%);
-}
-header {
-  text-align: center;
-  padding: 50px 18px 25px;
-}
-.neon-crown {
-  font-size: 52px;
-  filter: drop-shadow(0 0 13px #ffb5df);
-  animation: crownGlow 2.4s ease-in-out infinite alternate;
-}
-.eyebrow { color: var(--gold); letter-spacing: 2px; font-size: 13px; }
-header h1 {
-  margin: 12px 0;
-  color: #ffb5df;
-  font-size: clamp(32px, 8vw, 55px);
-  text-shadow: 0 0 9px #ff35a1, 0 0 32px #ff35a188;
-}
-header .subtitle { color: #e8cbdc; line-height: 2; }
-.neon-line {
-  width: min(200px, 55%);
-  height: 2px;
-  margin: 22px auto;
-  background: linear-gradient(90deg, transparent, var(--pink), var(--gold), transparent);
-  box-shadow: 0 0 12px var(--pink);
-}
-.typewriter {
-  min-height: 100px;
-  max-width: 680px;
-  margin: 20px auto;
-  line-height: 2.2;
-  font-size: 17px;
-  color: #fff0f8;
-}
-.cursor {
-  display: inline-block;
-  width: 2px;
-  height: 1em;
-  background: var(--pink);
-  vertical-align: middle;
-  animation: blink .7s steps(2) infinite;
-}
-main {
-  width: min(100% - 28px, 1000px);
-  margin: auto;
-  padding-bottom: 35px;
-}
-.section-title {
-  text-align: center;
-  color: var(--gold);
-  font-size: 24px;
-  margin: 32px 0 18px;
-}
-.section-title span {
-  display: block;
-  color: #cbb3c7;
-  font-size: 13px;
-  font-weight: normal;
-  margin-top: 9px;
-}
-.panel {
-  background: linear-gradient(145deg, #241727ed, #17101e);
-  border: 1px solid #ff69b437;
-  border-radius: 22px;
-  padding: 22px;
-  box-shadow: 0 0 24px #ff35a10a;
-}
-.age-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-.age-box {
-  text-align: center;
-  padding: 17px 4px;
-  border-radius: 16px;
-  background: #100b16;
-  border: 1px solid #e7b9d52b;
-}
-.age-number {
-  color: var(--pink);
-  font-size: clamp(23px, 5vw, 34px);
-  font-weight: bold;
-  text-shadow: 0 0 14px #ff35a155;
-  font-variant-numeric: tabular-nums;
-}
-.age-label { color: #cdb9c9; font-size: 12px; margin-top: 8px; }
-.note { color: #cdb9c9; font-size: 12px; line-height: 1.9; text-align: center; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-.music-panel {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-.music-icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #ff69b41b;
-  border: 1px solid #ff69b466;
-  font-size: 25px;
-}
-.music-info { flex: 1; min-width: 130px; }
-.music-info strong { color: #ffd7ed; }
-.music-info p { font-size: 12px; color: #cdb9c9; margin-bottom: 0; }
-.small-btn, .gift-btn {
-  color: #fff;
-  background: #ff69b414;
-  border: 1px solid #ff69b46e;
-  border-radius: 13px;
-  padding: 12px 15px;
-  transition: background .2s, transform .2s;
-}
-.small-btn:hover, .gift-btn:hover {
-  background: #ff69b432;
-  transform: translateY(-2px);
-}
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 13px;
-}
-.message-card {
-  background: linear-gradient(155deg, #302033, #1b1320);
-  border: 1px solid #eac88740;
-  border-radius: 18px;
-  padding: 20px 16px;
-  text-align: center;
-}
-.message-card .emoji { font-size: 31px; }
-.message-card h3 { color: var(--gold); margin: 12px 0; }
-.message-card p { color: #e5d2e1; line-height: 2; font-size: 14px; }
-.gift-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-.gift-btn { min-height: 100px; font-size: 16px; line-height: 1.8; }
-.gift-btn span { display: block; font-size: 29px; }
-.reveal {
-  min-height: 60px;
-  text-align: center;
-  line-height: 2.1;
-  color: #ffe3f1;
-  margin-top: 18px;
-}
-.name-meaning { text-align: center; line-height: 2.2; color: #ead9e8; }
-.name-meaning strong { color: var(--pink); }
-.wish-input {
-  width: 100%;
-  min-height: 100px;
-  resize: vertical;
-  color: white;
-  background: #100b16;
-  border: 1px solid #ff69b455;
-  border-radius: 14px;
-  padding: 14px;
-  font: inherit;
-}
-.wish-input:focus { outline: 1px solid var(--pink); }
-.wish-list { display: grid; gap: 10px; margin-top: 15px; }
-.wish-item {
-  border-right: 3px solid var(--gold);
-  border-radius: 8px;
-  background: #100b16;
-  padding: 12px;
-  line-height: 1.9;
-  overflow-wrap: anywhere;
-}
-.wish-item small { display: block; color: #bca9ba; margin-top: 5px; }
-.countdown { text-align: center; }
-.countdown strong { color: var(--pink); font-size: 25px; }
-.action-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px; }
-footer {
-  text-align: center;
-  color: #cbb5c8;
-  padding: 35px 15px 45px;
-  line-height: 2;
-}
-footer strong { color: var(--gold); }
-.sparkle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 10;
-  animation: sparkleUp 1.5s ease-out forwards;
-}
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-12px) rotate(10deg); }
-}
-@keyframes rise {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes crownGlow {
-  from { filter: drop-shadow(0 0 6px #ffb5df); }
-  to { filter: drop-shadow(0 0 22px #ff35a1); }
-}
-@keyframes blink { to { opacity: 0; } }
-@keyframes sparkleUp {
-  0% { opacity: 1; transform: translateY(0) scale(.6); }
-  100% { opacity: 0; transform: translateY(-100px) scale(1.5); }
-}
-@media (max-width: 600px) {
-  .cover-card { padding: 18px; }
-  .cover-photo { height: 35vh; }
-  .cards { grid-template-columns: 1fr; }
-  .age-grid { gap: 6px; }
-  .age-box { padding: 13px 2px; }
-  .age-label { font-size: 10px; }
-  .panel { padding: 16px; }
-  header { padding-top: 38px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
-}
-</style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: linear-gradient(180deg, #fff5fa, #fff0f6, #fff9fc);
+      color: var(--text);
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 18px;
+      padding: 25px;
+      background: linear-gradient(135deg, #ffe4ef, #fbd4e8, #fff6fb);
+      transition: opacity .8s ease, visibility .8s ease;
+    }
+
+    .intro.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-crown {
+      font-size: 75px;
+      animation: crownFloat 2s infinite ease-in-out;
+    }
+
+    .intro h1 {
+      color: var(--deep-pink);
+      font-size: clamp(27px, 6vw, 45px);
+      line-height: 1.7;
+    }
+
+    .intro p {
+      font-size: 17px;
+      line-height: 2;
+    }
+
+    .main-button {
+      border: none;
+      background: linear-gradient(135deg, #ff77a8, #d84d8b);
+      color: white;
+      padding: 14px 27px;
+      border-radius: 30px;
+      font-size: 17px;
+      font-weight: bold;
+      box-shadow: 0 7px 20px #e84e8a44;
+      transition: transform .2s;
+    }
+
+    .main-button:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    header {
+      position: relative;
+      padding: 65px 20px 40px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ffe3ef, #fff5fa, #fce1ef);
+    }
+
+    .crown {
+      font-size: 48px;
+      animation: crownFloat 3s infinite ease-in-out;
+    }
+
+    header h1 {
+      color: var(--deep-pink);
+      font-size: clamp(27px, 6vw, 45px);
+      margin: 15px 0;
+      line-height: 1.6;
+    }
+
+    header p {
+      line-height: 2;
+      font-size: 17px;
+    }
+
+    .photo-frame {
+      width: min(280px, 80vw);
+      height: 280px;
+      margin: 28px auto;
+      padding: 8px;
+      border: 4px solid var(--gold);
+      border-radius: 50%;
+      background: white;
+      box-shadow: 0 0 25px #ed91b966;
+      overflow: hidden;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .section {
+      width: min(900px, 92%);
+      margin: 30px auto;
+      padding: 28px 22px;
+      background: #ffffffd9;
+      border: 1px solid #f8d7e5;
+      border-radius: 25px;
+      box-shadow: 0 8px 28px #b85b8410;
+    }
+
+    .section h2 {
+      color: var(--deep-pink);
+      font-size: clamp(23px, 5vw, 32px);
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      font-size: 16px;
+      line-height: 2.2;
+      white-space: pre-line;
+    }
+
+    .counter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .counter-box {
+      background: linear-gradient(145deg, #fff0f6, #ffe0ec);
+      border-radius: 18px;
+      padding: 20px 8px;
+      border: 1px solid #f8c7dc;
+    }
+
+    .counter-box strong {
+      display: block;
+      font-size: 30px;
+      color: var(--deep-pink);
+      margin-bottom: 8px;
+    }
+
+    .counter-box span {
+      font-size: 14px;
+    }
+
+    .heart {
+      color: #f15a91;
+      display: inline-block;
+      animation: heartbeat 1.3s infinite;
+    }
+
+    .meaning-card,
+    .message-card,
+    .timeline-card {
+      text-align: right;
+      padding: 20px;
+      margin: 14px 0;
+      border-radius: 18px;
+      background: #fff5fa;
+      border-right: 5px solid var(--pink);
+      line-height: 2.2;
+    }
+
+    .timeline-card {
+      position: relative;
+    }
+
+    .timeline-card h3,
+    .message-card .person {
+      color: var(--deep-pink);
+      font-size: 19px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .nickname-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .nickname {
+      padding: 11px 16px;
+      border-radius: 25px;
+      background: #ffe4ef;
+      color: #b83f76;
+      border: 1px solid #f8c4d9;
+      animation: gentleFloat 3s infinite ease-in-out;
+    }
+
+    .nickname:nth-child(even) {
+      animation-delay: .5s;
+    }
+
+    .bottle {
+      font-size: 65px;
+      cursor: pointer;
+      transition: transform .3s;
+      display: inline-block;
+      margin: 12px;
+    }
+
+    .bottle:hover {
+      transform: rotate(-10deg) scale(1.1);
+    }
+
+    .hidden-message {
+      display: none;
+      background: #fff0f6;
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 15px;
+      line-height: 2.2;
+      animation: appear .5s ease;
+    }
+
+    .hidden-message.show {
+      display: block;
+    }
+
+    .love-meter {
+      width: 100%;
+      height: 18px;
+      border-radius: 20px;
+      background: #ffe1ed;
+      overflow: hidden;
+      margin: 22px 0;
+    }
+
+    .love-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #ff91b9, #d94d8a, #e7c46e);
+      border-radius: 20px;
+      transition: width 1.5s ease;
+    }
+
+    .dua {
+      background: linear-gradient(135deg, #fff3f8, #fffafc);
+      border: 1px solid #f3d1df;
+      padding: 22px;
+      border-radius: 20px;
+      font-size: 17px;
+      line-height: 2.3;
+    }
+
+    .surprise {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff0f6;
+      border-radius: 18px;
+      line-height: 2.2;
+      animation: appear .5s ease;
+    }
+
+    .surprise.show {
+      display: block;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 13px 22px;
+      border-radius: 30px;
+      background: #25d366;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 15px #25d36633;
+    }
+
+    .music-button {
+      position: fixed;
+      z-index: 50;
+      left: 15px;
+      bottom: 15px;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 16px;
+      background: #e84e8a;
+      color: white;
+      box-shadow: 0 5px 20px #a33a6733;
+    }
+
+    footer {
+      padding: 35px 20px 45px;
+      background: #ffe7f0;
+      line-height: 2.2;
+      color: #a33e70;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      z-index: 2;
+      pointer-events: none;
+      animation: floatUp linear forwards;
+    }
+
+    .typewriter {
+      min-height: 100px;
+    }
+
+    @keyframes crownFloat {
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-10px) rotate(3deg); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.15); }
+      40% { transform: scale(1); }
+      60% { transform: scale(1.12); }
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 23px 15px;
+      }
+
+      .photo-frame {
+        height: 235px;
+        width: 235px;
+      }
+
+      .section p {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- الواجهة الخارجية -->
-<section class="cover" id="cover">
-  <div class="cover-card">
-    <img class="cover-photo"
-         src="potooo.jpg"
-         alt="صورة واجهة مملكة الأميرة ليلي"
-         onerror="this.style.display='none'; document.getElementById('photoFallback').classList.remove('hidden');">
-    <div id="photoFallback" class="hidden" style="padding:30px">🎀 صورة الأميرة 🎀</div>
-    <div class="cover-crown">👑</div>
-    <h1>أهلًا بيكم في عالم ليلي</h1>
-    <p>
-      نورتوا مكان صغير معمول مخصوص للأميرة ليلي محمد،
-      فيه تفاصيل حلوة وذكريات مميزة من يوم ميلادها.
-    </p>
-    <button class="enter-btn" id="enterBtn">ادخل مملكة الأميرة ليلي ✨</button>
-  </div>
-</section>
+  <audio id="backgroundMusic" src="kafa.mp3" loop preload="auto"></audio>
 
-<!-- المملكة الداخلية -->
-<div class="kingdom hidden" id="kingdom">
+  <div class="intro" id="intro">
+    <div class="intro-crown">👑</div>
+    <h1>أهلًا في مملكة الأميرة ليلي محمد</h1>
+    <p>
+      هنا مكان معمول مخصوص عشان أميرة صغيرة تستاهل كل الحب والفرحة 💗
+      <br>
+      يلا ندخل مملكتها الجميلة؟
+    </p>
+    <button class="main-button" id="enterButton">افتحي مملكتك يا ليلي 💖</button>
+  </div>
+
+  <button class="music-button" id="musicButton">🎵 تشغيل الأغنية</button>
+
   <header>
-    <div class="neon-crown">👑</div>
-    <div class="eyebrow">WELCOME TO THE ROYAL WORLD</div>
-    <h1>ليلي محمد</h1>
-    <div class="subtitle">أميرة صغيرة... وفرحة كبيرة 🎀</div>
-    <div class="neon-line"></div>
-    <div class="typewriter" aria-live="polite">
-      <span id="typedText"></span><span class="cursor"></span>
+    <div class="crown">👑🌸</div>
+    <h1>مملكة الأميرة ليلي محمد</h1>
+    <p>
+      لأجمل ضحكة، وأرق قلب، وأحلى أميرة في الدنيا كلها
+      <br>
+      إنتِ حكاية حلوة ربنا كتبها عشان تفرّح قلوبنا 💗
+    </p>
+
+    <div class="photo-frame">
+      <img src="potooo.jpg" alt="الأميرة ليلي محمد"
+           onerror="this.style.display='none'; this.parentElement.innerHTML='👑💗🌸'; this.parentElement.style.fontSize='85px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
     </div>
-    <button class="enter-btn" id="exploreBtn">يلا نكتشف المملكة ↓</button>
+
+    <p>أميرتنا الصغيرة.. ربنا يحفظك ويخليكي لينا دايمًا 🥹❤️</p>
   </header>
 
-  <main id="mainContent">
-    <h2 class="section-title">⏳ عمر الأميرة <span>كل ثانية بتعدّي بتضيف ذكرى جديدة</span></h2>
-    <section class="panel">
-      <div class="age-grid" aria-label="عداد عمر ليلي">
-        <div class="age-box"><div class="age-number" id="days">0</div><div class="age-label">يوم</div></div>
-        <div class="age-box"><div class="age-number" id="hours">00</div><div class="age-label">ساعة</div></div>
-        <div class="age-box"><div class="age-number" id="minutes">00</div><div class="age-label">دقيقة</div></div>
-        <div class="age-box"><div class="age-number" id="seconds">00</div><div class="age-label">ثانية</div></div>
+  <main>
+
+    <section class="section">
+      <h2>🎂 يوم ميلاد أميرتنا</h2>
+      <p>
+        يوم 12 أكتوبر 2026، يوم مميز اتكتب فيه فصل جديد من الحكاية الجميلة.
+        ربنا يجعل أيامك كلها فرح، ويكتبلك عمر مليان صحة وستر ونجاح.
+      </p>
+
+      <div class="counter-grid">
+        <div class="counter-box">
+          <strong id="days">0</strong>
+          <span>يوم من يوم الميلاد</span>
+        </div>
+        <div class="counter-box">
+          <strong id="hours">0</strong>
+          <span>ساعة</span>
+        </div>
+        <div class="counter-box">
+          <strong id="minutes">0</strong>
+          <span>دقيقة</span>
+        </div>
+        <div class="counter-box">
+          <strong id="seconds">0</strong>
+          <span>ثانية</span>
+        </div>
       </div>
-      <p class="note" id="ageNote">تاريخ الميلاد: 12 أكتوبر 2026 — وقت الميلاد الافتراضي: 12 منتصف الليل.</p>
-      <p class="note">💗 نبضات رمزية للزينة فقط، وليست قياسًا حقيقيًا لنبض ليلي.</p>
-      <div class="age-number" style="text-align:center;margin-top:8px" id="heartRate">♥ 72</div>
+      <p style="margin-top:18px">
+        كل ثانية وإنتِ بخير، وكل سنة وإنتِ فرحة البيت كلها
+        <span class="heart">♥</span>
+      </p>
     </section>
 
-    <h2 class="section-title">🎵 موسيقى المملكة <span>شغّل الأغنية وقت ما تحب</span></h2>
-    <section class="panel music-panel">
-      <div class="music-icon">♫</div>
-      <div class="music-info">
-        <strong>أغنية ليلي الخاصة</strong>
-        <p>الموسيقى بتكمل جمال اللحظة 🎀</p>
-      </div>
-      <button class="small-btn" id="musicBtn">▶ تشغيل الأغنية</button>
-      <audio id="song" src="kafa.mp3" preload="metadata" loop></audio>
-    </section>
-
-    <h2 class="section-title">💌 رسائل من القلب <span>كلمات حلوة للأميرة الصغيرة</span></h2>
-    <section class="cards">
-      <article class="message-card">
-        <div class="emoji">👨‍👧</div>
-        <h3>رسالة من بابا</h3>
-        <p>يا ليلي، يمكن لسه بدري على الكلام، بس يوم ما تكبري هتعرفي إن يوم ميلادك كان يوم مميز جدًا، وإنك هتفضلي دايمًا غالية ومكانك كبير في قلبي. ربنا يحفظك ويكتبلك كل خير. ❤️</p>
-      </article>
-      <article class="message-card">
-        <div class="emoji">👩‍👧</div>
-        <h3>رسالة من ماما</h3>
-        <p>يا أجمل هدية، ربنا يجعل أيامك كلها فرحة وراحة بال، ويكبرك على الخير، ويخلي ضحكتك منوّرة بيتنا. يا رب أشوفك دايمًا بخير وسعادة. 🌷</p>
-      </article>
-      <article class="message-card">
-        <div class="emoji">🎀</div>
-        <h3>رسالة من بوبا</h3>
-        <p>يا لولو يا حبيبة بوبا، يا رب تكبري وتبقي أحلى وأشطر بنوتة، وتفضلي دايمًا منوّرة الدنيا بضحكتك. مستنية أشوفك بتكبري يوم ورا يوم يا قمرة! 💗</p>
-      </article>
-    </section>
-
-    <h2 class="section-title">🎁 مفاجآت الأميرة <span>اختار هدية وافتحها</span></h2>
-    <section class="panel">
-      <div class="gift-grid">
-        <button class="gift-btn" data-gift="wish"><span>🌟</span>نجمة الأمنيات</button>
-        <button class="gift-btn" data-gift="heart"><span>💖</span>قلب محبة</button>
-        <button class="gift-btn" data-gift="crown"><span>👑</span>تاج الأميرة</button>
-        <button class="gift-btn" data-gift="prayer"><span>🤲</span>دعاء لليلي</button>
-      </div>
-      <div class="reveal" id="giftReveal" aria-live="polite">اختار هديتك وشوف المفاجأة ✨</div>
-      <div class="action-row">
-        <button class="small-btn" id="copyPrayer">انسخ دعاء ليلي 🤍</button>
+    <section class="section">
+      <h2>💗 ليلي.. حكاية جميلة</h2>
+      <div class="meaning-card">
+        <p>
+          يا ليلي، وجودك لوحده سبب للفرحة.
+          ضحكتك بتخلّي اليوم أحلى، وعيونك فيها براءة الدنيا كلها.
+          يا رب تفضلي دايمًا محاطة بالحب والحنية،
+          وكل خطوة في حياتك تكون فيها خير وفرحة.
+        </p>
       </div>
     </section>
 
-    <h2 class="section-title">🌸 معنى اسم ليلي <span>اسم رقيق له أكتر من إيحاء جميل</span></h2>
-    <section class="panel name-meaning">
-      اسم <strong>ليلي</strong> اسم رقيق، وله في العربية إيحاء جميل بالليل وهدوئه.
-      <br>
-      وقد يذكّر الاسم أيضًا بكلمة <strong>Lily</strong> في الإنجليزية،
-      وهي زهرة الزنبق المرتبطة رمزيًا بالنقاء والرقة والجمال.
-      <br>
-      <span style="color:var(--gold)">اسم ناعم لحكاية صغيرة لسه بتبدأ. 🌷</span>
-    </section>
-
-    <h2 class="section-title">🌠 أمنية للأميرة <span>اكتب دعوة أو أمنية جميلة ليلي</span></h2>
-    <section class="panel">
-      <textarea class="wish-input" id="wishInput" maxlength="300"
-        placeholder="مثلاً: يا رب تكبري في صحة وسعادة وتكون أيامك كلها خير..."></textarea>
-      <div class="action-row">
-        <button class="small-btn" id="saveWish">أضف أمنيتك ✨</button>
-        <button class="small-btn" id="showWishes">عرض الأمنيات المحفوظة</button>
+    <section class="section">
+      <h2>🌷 أسماء الدلع بتاعتك</h2>
+      <p>كل اسم فيهم معمول مخصوص عشانك يا أحلى أميرة.</p>
+      <div class="nickname-list">
+        <span class="nickname">لي لي 💗</span>
+        <span class="nickname">لولو 🎀</span>
+        <span class="nickname">لولتي 🌸</span>
+        <span class="nickname">قمر بوبا 🌙</span>
+        <span class="nickname">سكر 🍬</span>
+        <span class="nickname">أميرتي 👑</span>
+        <span class="nickname">قلب البيت ❤️</span>
+        <span class="nickname">كتكوتة 🐣</span>
       </div>
-      <div class="wish-list" id="wishList"></div>
-      <p class="note">الأمنيات تُحفظ على نفس الجهاز والمتصفح فقط، ولا تظهر تلقائيًا لباقي الزوار.</p>
     </section>
 
-    <h2 class="section-title">🎂 أول عيد ميلاد <span>العد التنازلي ليوم مميز</span></h2>
-    <section class="panel countdown">
-      <p>فاضل على عيد ميلاد ليلي الأول:</p>
-      <strong id="birthdayCountdown">جارٍ الحساب...</strong>
-      <p class="note">12 أكتوبر 2027 🎉</p>
+    <section class="section">
+      <h2>📖 حكاية ليلي</h2>
+
+      <div class="timeline-card">
+        <h3>🌸 بداية الحكاية</h3>
+        <p>
+          كل حكاية حلوة بيكون ليها بداية، وإنتِ يا ليلي بداية حكاية مليانة
+          أمل وفرحة ودعوات حلوة من القلب.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <h3>💞 ضحكة تغيّر اليوم</h3>
+        <p>
+          شمس الدنيا بتطلع لما تطلع ضحكة منك.
+          ضحكتك الصغيرة قادرة تخلّي اللي حواليكي ينسوا تعب يومهم كله.
+        </p>
+      </div>
+
+      <div class="timeline-card">
+        <h3>👑 أميرة كل يوم</h3>
+        <p>
+          كل يوم هتكبري وتتعلمي وتكتشفي حاجة جديدة،
+          ويا رب كل يوم في حياتك يكون أجمل من اللي قبله.
+        </p>
+      </div>
     </section>
 
-    <div class="action-row">
-      <button class="small-btn" id="backToTop">⬆ ارجع لفوق</button>
-      <button class="small-btn" id="backToCover">الواجهة الخارجية</button>
-    </div>
+    <section class="section">
+      <h2>💌 جواب صغير ليكي</h2>
+      <p id="typedLetter" class="typewriter"></p>
+      <button class="main-button" id="letterButton">اقري جوابك يا ليلي 💌</button>
+    </section>
+
+    <section class="section">
+      <h2>🍾 رسالة مستخبية مخصوص ليكي</h2>
+      <p>اضغطي على الزجاجة وشوفي الرسالة اللي جواها ✨</p>
+      <div class="bottle" id="bottle" role="button" tabindex="0" aria-label="افتحي الرسالة">🍾</div>
+
+      <div class="hidden-message" id="bottleMessage">
+        يا ليلي يا أجمل هدية من ربنا،
+        ربنا يطمن قلبي عليكي في كل لحظة،
+        ويحفظك من كل شر، ويخلي ضحكتك منورة الدنيا.
+        <br>
+        إنتِ تستاهلي كل حاجة حلوة في الدنيا. 💗👑
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>💖 مقياس الحب</h2>
+      <p>هو ينفع نقيس حبنا ليكي أصلًا؟ ده حب أكبر من أي أرقام! 🥹</p>
+      <div class="love-meter">
+        <div class="love-fill" id="loveFill"></div>
+      </div>
+      <button class="main-button" id="loveButton">احسبي الحب 💗</button>
+      <p id="loveResult" style="margin-top:15px"></p>
+    </section>
+
+    <section class="section">
+      <h2>💌 رسايل من الناس اللي بيحبوكي</h2>
+
+      <div class="message-card">
+        <div class="person">🌷 ماما</div>
+        <p>
+          يا روح ماما ونور عيني، يا أجمل نعمة ربنا رزقني بيها.
+          بدعيلك من قلبي إن ربنا يحفظك ويبارك في عمرك،
+          وتفضلي دايمًا بخير ومبسوطة وناجحة.
+          مهما كبرتي هتفضلي حتة من قلبي ماشية على الأرض.
+          بحبك يا ليلي قد الدنيا كلها. ❤️
+        </p>
+      </div>
+
+      <div class="message-card">
+        <div class="person">💙 بابا</div>
+        <p>
+          يا أميرتي الصغيرة، يا أجمل حاجة في حياتي،
+          ربنا يقدرني وأشوفك دايمًا فرحانة وناجحة،
+          وأفضل سند ليكي في كل خطوة.
+          مهما كبرتي هتفضلي بنتي وحبيبتي وأغلى ما عندي.
+          ربنا يحميكي من كل شر يا ليلي. 👑❤️
+        </p>
+      </div>
+
+      <!-- رسالة بوبا بدل رسائل الجد والجدة -->
+      <div class="message-card">
+        <div class="person">🎀 بوبا</div>
+        <p>
+          يا ليلي يا أحلى وأجمل أميرة في الدنيا،
+          يا حتة سكر دخلت حياتنا ونورتها بوجودك. ❤️
+
+          ربنا يحفظك ويبارك في عمرك،
+          وأشوفك دايمًا مبسوطة وضحكتك مالية الدنيا،
+          وتكبري وتحققي كل أحلامك يا روح بوبا. 🥹💗
+
+          هتفضلي حبيبتي الصغيرة ودلوعتي،
+          وليكي في قلبي مكان محدش يقدر ياخده.
+          بحبك يا ليلي يا قمر بوبا. 👑🌸
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🤲 دعوة من القلب</h2>
+      <div class="dua">
+        اللهم احفظ ليلي محمد بعينك التي لا تنام،
+        واكتب لها الخير والسعادة في كل أيامها.
+        <br>
+        اللهم ارزقها الصحة والعافية، وبارك في عمرها،
+        واجعل قلبها مطمئنًا ونفسها سعيدة.
+        <br>
+        اللهم أبعد عنها كل سوء، وافتح لها أبواب الخير،
+        واجعلها من الصالحين الناجحين،
+        وارزقها صحبة طيبة وأيامًا مليئة بالبركة.
+        <br>
+        يا رب احفظ ضحكتها، وحقق أمنياتها،
+        واجعل مستقبلها أجمل مما تتمنى. آمين يا رب العالمين. 🤍
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>🎁 مفاجأة صغيرة</h2>
+      <p>فيه مفاجأة مستخبية مستنياكي.. جاهزة؟</p>
+      <button class="main-button" id="surpriseButton">افتحي المفاجأة 🎁</button>
+
+      <div class="surprise" id="surprise">
+        <h3 style="color:#e84e8a;margin-bottom:12px">يا أحلى ليلي في الدنيا 👑💗</h3>
+        <p>
+          شمس الدنيا تطلع لما تطلع ضحكة منك،
+          وربنا يديم عليكي الفرحة ويخلي أيامك كلها ألوان جميلة.
+          <br>
+          افتكري دايمًا إنك غالية، وإن فيه ناس بتدعيلك من قلبها
+          إنك تكوني أسعد أميرة في الدنيا. 🌸
+        </p>
+        <div style="font-size:45px;margin-top:15px">🎀🌷💗👑✨</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>💬 لو محتاجة تحكي</h2>
+      <p>
+        لو في يوم مضايقة أو محتاجة تتكلمي،
+        متشيليش أي حاجة لوحدك.
+        احكي اللي جواكي وخلي قلبك خفيف،
+        وإن شاء الله كل حاجة تبقى أحسن. ❤️
+      </p>
+      <a class="whatsapp-button"
+         href="https://wa.me/?text=%D9%8A%D8%A7%20%D8%A8%D9%88%D8%A8%D8%A7%D8%8C%20%D9%83%D9%84%20%D8%AD%D8%A7%D8%AC%D8%A9%20%D8%AA%D9%85%D8%A7%D9%85%20%D8%9F"
+         target="_blank" rel="noopener">
+        ابعتي رسالة لبوبا 💚
+      </a>
+    </section>
+
   </main>
 
   <footer>
-    <div style="font-size:28px">👑 💗 ✨</div>
-    <strong>مملكة الأميرة ليلي محمد</strong>
-    <div>بداية حكاية جميلة، وذكريات تكبر يومًا بعد يوم.</div>
+    <div style="font-size:35px">👑💗🌸</div>
+    <p>
+      صُنعت بكل الحب عشان الأميرة ليلي محمد
+      <br>
+      ربنا يحفظك ويخليكي منورة الدنيا دايمًا.
+    </p>
+    <p>مع أطيب الأمنيات من بوبا ❤️</p>
   </footer>
-</div>
 
-<script>
-"use strict";
+  <script>
+    const music = document.getElementById("backgroundMusic");
+    const intro = document.getElementById("intro");
+    const enterButton = document.getElementById("enterButton");
+    const musicButton = document.getElementById("musicButton");
 
-/*
-  تاريخ الميلاد: 12 أكتوبر 2026، الساعة 00:00.
-  لو وقت الميلاد الحقيقي مختلف، عدّل قيمة birthDate بالأسفل.
-  الوقت محسوب حسب التوقيت المحلي للجهاز الذي يفتح الموقع.
-*/
-const birthDate = new Date(2026, 9, 12, 0, 0, 0);
-const firstBirthday = new Date(2027, 9, 12, 0, 0, 0);
-
-const $ = id => document.getElementById(id);
-const cover = $("cover");
-const kingdom = $("kingdom");
-const song = $("song");
-const musicBtn = $("musicBtn");
-
-const welcomeMessage =
-  "أهلًا بيكم في مملكة الأميرة ليلي! هنا هنشارك لحظات حلوة، ورسائل من العيلة، وأمنيات جميلة لبداية حكاية جديدة. نورتوا المملكة! 💗";
-
-let typingTimer = null;
-let typingStarted = false;
-
-function typeWelcome() {
-  if (typingStarted) return;
-  typingStarted = true;
-  const output = $("typedText");
-  let i = 0;
-
-  function typeNext() {
-    if (i >= welcomeMessage.length) return;
-    output.textContent += welcomeMessage.charAt(i++);
-    typingTimer = setTimeout(typeNext, 48);
-  }
-  typeNext();
-}
-
-$("enterBtn").addEventListener("click", () => {
-  cover.classList.add("hidden");
-  kingdom.classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "instant" });
-  typeWelcome();
-  createSparkles(22);
-});
-
-$("exploreBtn").addEventListener("click", () => {
-  $("mainContent").scrollIntoView({ behavior: "smooth" });
-  createSparkles(12);
-});
-
-$("backToTop").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-$("backToCover").addEventListener("click", () => {
-  kingdom.classList.add("hidden");
-  cover.classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-function pad(value) {
-  return String(value).padStart(2, "0");
-}
-
-function updateAge() {
-  const now = new Date();
-  const diff = now - birthDate;
-
-  if (diff < 0) {
-    $("days").textContent = "0";
-    $("hours").textContent = "00";
-    $("minutes").textContent = "00";
-    $("seconds").textContent = "00";
-    $("ageNote").textContent = "موعد الميلاد لم يحن بعد حسب ساعة الجهاز.";
-    return;
-  }
-
-  const totalSeconds = Math.floor(diff / 1000);
-  $("days").textContent = Math.floor(totalSeconds / 86400).toLocaleString("ar-EG");
-  $("hours").textContent = pad(Math.floor(totalSeconds / 3600) % 24);
-  $("minutes").textContent = pad(Math.floor(totalSeconds / 60) % 60);
-  $("seconds").textContent = pad(totalSeconds % 60);
-
-  $("ageNote").textContent =
-    "تاريخ الميلاد: 12 أكتوبر 2026 — وقت الميلاد الافتراضي: 12 منتصف الليل.";
-
-  // رقم رمزي للزينة، وليس قياسًا طبيًا.
-  $("heartRate").textContent = "♥ " + (72 + Math.floor(Math.random() * 9));
-}
-
-function updateBirthdayCountdown() {
-  const diff = firstBirthday - new Date();
-  if (diff <= 0) {
-    $("birthdayCountdown").textContent = "كل سنة وليلي طيبة! 🎂💗";
-    return;
-  }
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor(diff / 3600000) % 24;
-  const minutes = Math.floor(diff / 60000) % 60;
-  const seconds = Math.floor(diff / 1000) % 60;
-  $("birthdayCountdown").textContent =
-    `${days} يوم · ${pad(hours)} ساعة · ${pad(minutes)} دقيقة · ${pad(seconds)} ثانية`;
-}
-
-updateAge();
-updateBirthdayCountdown();
-setInterval(updateAge, 1000);
-setInterval(updateBirthdayCountdown, 1000);
-
-// تشغيل وإيقاف الأغنية
-musicBtn.addEventListener("click", async () => {
-  if (song.paused) {
-    try {
-      await song.play();
-      musicBtn.textContent = "⏸ إيقاف الأغنية";
-    } catch (error) {
-      musicBtn.textContent = "تعذّر التشغيل — جرّب مرة أخرى";
+    async function playMusic() {
+      try {
+        await music.play();
+        musicButton.textContent = "🎵 إيقاف الأغنية";
+      } catch (error) {
+        musicButton.textContent = "🎵 اضغطي لتشغيل الأغنية";
+      }
     }
-  } else {
-    song.pause();
-    musicBtn.textContent = "▶ تشغيل الأغنية";
-  }
-});
 
-song.addEventListener("play", () => musicBtn.textContent = "⏸ إيقاف الأغنية");
-song.addEventListener("pause", () => musicBtn.textContent = "▶ تشغيل الأغنية");
-song.addEventListener("error", () => {
-  musicBtn.textContent = "تحقق من ملف kafa.mp3";
-});
+    function pauseMusic() {
+      music.pause();
+      musicButton.textContent = "🎵 تشغيل الأغنية";
+    }
 
-// المفاجآت التفاعلية
-const gifts = {
-  wish: "🌟 يا رب تكون أيامك مليانة خير، وتلاقي في كل خطوة فرحة جديدة.",
-  heart: "💖 ليلي، ليكي مكان جميل في قلوب الناس اللي بيحبوكي.",
-  crown: "👑 التاج مش بس زينة... إنتِ أميرة العيلة الصغيرة!",
-  prayer: "🤲 اللهم احفظ ليلي، وأنبتها نباتًا حسنًا، وارزقها الصحة والسعادة وراحة البال."
-};
+    enterButton.addEventListener("click", () => {
+      intro.classList.add("hide");
+      playMusic();
+      makeHearts(12);
+    });
 
-document.querySelectorAll("[data-gift]").forEach(button => {
-  button.addEventListener("click", () => {
-    $("giftReveal").textContent = gifts[button.dataset.gift];
-    createSparkles(14);
-  });
-});
+    musicButton.addEventListener("click", () => {
+      if (music.paused) {
+        playMusic();
+      } else {
+        pauseMusic();
+      }
+    });
 
-const prayerText =
-  "اللهم احفظ ليلي محمد، وبارك في عمرها وصحتها، وأنبتها نباتًا حسنًا، واجعل أيامها مليئة بالخير والسعادة، واحفظها من كل سوء.";
+    // محاولة تشغيل الأغنية عند فتح الموقع.
+    // لو المتصفح منع التشغيل التلقائي، أول ضغطة من الزائر هتشغلها.
+    window.addEventListener("load", () => {
+      playMusic();
+    });
 
-$("copyPrayer").addEventListener("click", async () => {
-  try {
-    await navigator.clipboard.writeText(prayerText);
-    $("giftReveal").textContent = "تم نسخ الدعاء 🤍";
-  } catch (error) {
-    $("giftReveal").textContent = prayerText;
-  }
-});
+    document.addEventListener("pointerdown", function startOnFirstTouch() {
+      if (music.paused && !intro.classList.contains("hide")) {
+        playMusic();
+      }
+    }, { once: true });
 
-// الأمنيات: حفظ محلي اختياري مع التعامل الآمن مع النصوص
-const wishesKey = "lilyPrincessWishesV1";
+    // عداد العمر من تاريخ الميلاد.
+    const birthDate = new Date("2026-10-12T00:00:00");
 
-function readWishes() {
-  try {
-    const data = JSON.parse(localStorage.getItem(wishesKey) || "[]");
-    return Array.isArray(data) ? data.filter(x => typeof x === "string") : [];
-  } catch {
-    return [];
-  }
-}
+    function updateAgeCounter() {
+      const now = new Date();
+      let diff = now.getTime() - birthDate.getTime();
 
-function renderWishes() {
-  const list = $("wishList");
-  list.replaceChildren();
-  readWishes().forEach((wish, index) => {
-    const item = document.createElement("div");
-    item.className = "wish-item";
-    item.textContent = "✨ " + wish;
+      if (diff < 0) diff = 0;
 
-    const small = document.createElement("small");
-    small.textContent = "أمنية رقم " + (index + 1);
-    item.appendChild(small);
-    list.appendChild(item);
-  });
-}
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
 
-$("saveWish").addEventListener("click", () => {
-  const value = $("wishInput").value.trim();
-  if (!value) {
-    $("wishInput").focus();
-    return;
-  }
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
 
-  const wishes = readWishes();
-  wishes.push(value);
+    updateAgeCounter();
+    setInterval(updateAgeCounter, 1000);
 
-  try {
-    localStorage.setItem(wishesKey, JSON.stringify(wishes.slice(-50)));
-    $("wishInput").value = "";
-    renderWishes();
-    $("giftReveal").textContent = "اتحفظت أمنيتك على الجهاز ده ✨";
-  } catch {
-    $("giftReveal").textContent = "المتصفح لم يسمح بحفظ الأمنية. يمكنك الاحتفاظ بها خارج الموقع.";
-  }
-});
+    // كتابة الجواب حرفًا حرفًا.
+    const letter =
+      "يا ليلي يا أجمل أميرة،\n\n" +
+      "يمكن الكلام مهما كان حلو مش هيقدر يوصف قد إيه وجودك بيخلّي الدنيا ألطف وأجمل.\n\n" +
+      "أتمنالك أيام مليانة ضحك وراحة بال، وأحلام تتحقق واحدة واحدة، " +
+      "وقلب دايمًا مطمّن ومبسوط.\n\n" +
+      "خلي ضحكتك منورة الدنيا، ومتنسِيش أبدًا إنك تستاهلي كل حاجة جميلة.\n\n" +
+      "ربنا يحفظك يا قمر بوبا. 💗👑";
 
-$("showWishes").addEventListener("click", renderWishes);
+    let letterStarted = false;
 
-// لمعات خفيفة حول مكان النقر
-function createSparkles(count) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    document.getElementById("letterButton").addEventListener("click", () => {
+      const output = document.getElementById("typedLetter");
 
-  const symbols = ["✦", "✧", "♡", "✨"];
-  for (let i = 0; i < count; i++) {
-    const el = document.createElement("span");
-    el.className = "sparkle";
-    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    el.style.left = (5 + Math.random() * 90) + "vw";
-    el.style.top = (15 + Math.random() * 70) + "vh";
-    el.style.color = Math.random() > .5 ? "#ff69b4" : "#eac887";
-    el.style.fontSize = (12 + Math.random() * 17) + "px";
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 1600);
-  }
-}
-</script>
+      if (letterStarted) {
+        output.textContent = letter;
+        return;
+      }
+
+      letterStarted = true;
+      let index = 0;
+
+      function typeNext() {
+        if (index < letter.length) {
+          output.textContent += letter.charAt(index);
+          index++;
+          setTimeout(typeNext, 38);
+        }
+      }
+
+      typeNext();
+    });
+
+    // فتح الرسالة داخل الزجاجة.
+    const bottle = document.getElementById("bottle");
+    const bottleMessage = document.getElementById("bottleMessage");
+
+    function openBottle() {
+      bottleMessage.classList.toggle("show");
+      makeHearts(8);
+    }
+
+    bottle.addEventListener("click", openBottle);
+    bottle.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openBottle();
+      }
+    });
+
+    // مقياس الحب.
+    document.getElementById("loveButton").addEventListener("click", () => {
+      const fill = document.getElementById("loveFill");
+      const result = document.getElementById("loveResult");
+
+      fill.style.width = "100%";
+      result.textContent =
+        "النتيجة: حب بوبا لليلي أكبر من كل الأرقام في الدنيا! 💗👑";
+
+      makeHearts(20);
+    });
+
+    // المفاجأة.
+    document.getElementById("surpriseButton").addEventListener("click", () => {
+      document.getElementById("surprise").classList.toggle("show");
+      makeHearts(18);
+    });
+
+    // قلوب متحركة في الخلفية.
+    function makeHearts(amount = 5) {
+      const symbols = ["💗", "💕", "💖", "🌸", "✨", "🎀"];
+
+      for (let i = 0; i < amount; i++) {
+        const heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (16 + Math.random() * 18) + "px";
+        heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 8500);
+      }
+    }
+
+    setInterval(() => {
+      if (Math.random() > 0.45) makeHearts(1);
+    }, 1800);
+  </script>
 
 </body>
 </html>
