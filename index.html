@@ -1,10 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مملكة الأميرة ليلي محمد 👑💗</title>
+
+  <!-- استدعاء الخطوط الفخمة (Cairo للنصوص العادية، Amiri للعناوين) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+  
+  <!-- استدعاء مكتبة AOS للأنيميشن عند التمرير -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
     :root {
@@ -28,16 +33,23 @@
     }
 
     body {
-      font-family: Tahoma, Arial, sans-serif;
+      /* تعديل الخط ومؤشر الماوس */
+      font-family: 'Cairo', Tahoma, Arial, sans-serif;
       background: linear-gradient(180deg, #fff5fa, #fff0f6, #fff9fc);
       color: var(--text);
       text-align: center;
       overflow-x: hidden;
+      cursor: url('https://cdn-icons-png.flaticon.com/32/3757/3757973.png'), auto;
     }
 
-    button {
+    /* تطبيق خط الأميري على العناوين والرموز الملكية */
+    h1, h2, h3, .intro-crown, .crown {
+      font-family: 'Amiri', serif;
+    }
+
+    button, .bottle, a {
       font-family: inherit;
-      cursor: pointer;
+      cursor: url('https://cdn-icons-png.flaticon.com/32/3757/3757973.png'), pointer;
     }
 
     .intro {
@@ -76,19 +88,22 @@
       line-height: 2;
     }
 
+    /* تعديل الأزرار بلمسة الـ Rose Gold المتدرج */
     .main-button {
       border: none;
-      background: linear-gradient(135deg, #ff77a8, #d84d8b);
+      background: linear-gradient(135deg, #e7c46e, #d84d8b, #ff77a8);
+      background-size: 200% auto;
       color: white;
       padding: 14px 27px;
       border-radius: 30px;
       font-size: 17px;
       font-weight: bold;
-      box-shadow: 0 7px 20px #e84e8a44;
-      transition: transform .2s;
+      box-shadow: 0 8px 25px rgba(216, 77, 139, 0.3);
+      transition: 0.5s;
     }
 
     .main-button:hover {
+      background-position: right center;
       transform: translateY(-3px) scale(1.03);
     }
 
@@ -116,15 +131,19 @@
       font-size: 17px;
     }
 
+    /* تعديل إطار الصورة بلمسة مضيئة */
     .photo-frame {
       width: min(280px, 80vw);
       height: 280px;
       margin: 28px auto;
       padding: 8px;
-      border: 4px solid var(--gold);
+      border: 4px solid transparent;
       border-radius: 50%;
-      background: white;
-      box-shadow: 0 0 25px #ed91b966;
+      background-image: linear-gradient(white, white), linear-gradient(135deg, #d6ad55, #f8d7e5, #d6ad55);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      box-shadow: 0 0 30px rgba(214, 173, 85, 0.4);
+      animation: pulseGlow 3s infinite alternate;
       overflow: hidden;
     }
 
@@ -135,14 +154,17 @@
       border-radius: 50%;
     }
 
+    /* تعديل السكاشن بتأثير الزجاج المصنفر (Glassmorphism) */
     .section {
       width: min(900px, 92%);
       margin: 30px auto;
-      padding: 28px 22px;
-      background: #ffffffd9;
-      border: 1px solid #f8d7e5;
-      border-radius: 25px;
-      box-shadow: 0 8px 28px #b85b8410;
+      padding: 35px 25px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 30px;
+      box-shadow: 0 15px 35px rgba(232, 78, 138, 0.08);
     }
 
     .section h2 {
@@ -152,7 +174,7 @@
     }
 
     .section p {
-      font-size: 16px;
+      font-size: 17px;
       line-height: 2.2;
       white-space: pre-line;
     }
@@ -165,7 +187,7 @@
     }
 
     .counter-box {
-      background: linear-gradient(145deg, #fff0f6, #ffe0ec);
+      background: linear-gradient(145deg, rgba(255,240,246,0.8), rgba(255,224,236,0.8));
       border-radius: 18px;
       padding: 20px 8px;
       border: 1px solid #f8c7dc;
@@ -195,7 +217,7 @@
       padding: 20px;
       margin: 14px 0;
       border-radius: 18px;
-      background: #fff5fa;
+      background: rgba(255, 245, 250, 0.7);
       border-right: 5px solid var(--pink);
       line-height: 2.2;
     }
@@ -207,7 +229,7 @@
     .timeline-card h3,
     .message-card .person {
       color: var(--deep-pink);
-      font-size: 19px;
+      font-size: 21px;
       margin-bottom: 8px;
       font-weight: bold;
     }
@@ -227,6 +249,7 @@
       color: #b83f76;
       border: 1px solid #f8c4d9;
       animation: gentleFloat 3s infinite ease-in-out;
+      font-weight: bold;
     }
 
     .nickname:nth-child(even) {
@@ -235,7 +258,6 @@
 
     .bottle {
       font-size: 65px;
-      cursor: pointer;
       transition: transform .3s;
       display: inline-block;
       margin: 12px;
@@ -247,12 +269,13 @@
 
     .hidden-message {
       display: none;
-      background: #fff0f6;
+      background: rgba(255, 240, 246, 0.9);
       border-radius: 18px;
       padding: 20px;
       margin-top: 15px;
       line-height: 2.2;
       animation: appear .5s ease;
+      font-weight: bold;
     }
 
     .hidden-message.show {
@@ -277,7 +300,7 @@
     }
 
     .dua {
-      background: linear-gradient(135deg, #fff3f8, #fffafc);
+      background: linear-gradient(135deg, rgba(255,243,248,0.8), rgba(255,250,252,0.8));
       border: 1px solid #f3d1df;
       padding: 22px;
       border-radius: 20px;
@@ -289,7 +312,7 @@
       display: none;
       margin-top: 20px;
       padding: 20px;
-      background: #fff0f6;
+      background: rgba(255, 240, 246, 0.8);
       border-radius: 18px;
       line-height: 2.2;
       animation: appear .5s ease;
@@ -309,6 +332,12 @@
       text-decoration: none;
       font-weight: bold;
       box-shadow: 0 5px 15px #25d36633;
+      transition: 0.3s;
+    }
+    
+    .whatsapp-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #25d36655;
     }
 
     .music-button {
@@ -319,9 +348,16 @@
       border: none;
       border-radius: 50px;
       padding: 12px 16px;
-      background: #e84e8a;
+      background: rgba(232, 78, 138, 0.85);
+      backdrop-filter: blur(5px);
       color: white;
       box-shadow: 0 5px 20px #a33a6733;
+      transition: 0.3s;
+    }
+    
+    .music-button:hover {
+      background: rgba(232, 78, 138, 1);
+      transform: scale(1.05);
     }
 
     footer {
@@ -341,6 +377,11 @@
 
     .typewriter {
       min-height: 100px;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 20px rgba(214, 173, 85, 0.3); }
+      100% { box-shadow: 0 0 40px rgba(214, 173, 85, 0.6); }
     }
 
     @keyframes crownFloat {
@@ -376,12 +417,10 @@
       .section {
         padding: 23px 15px;
       }
-
       .photo-frame {
         height: 235px;
         width: 235px;
       }
-
       .section p {
         font-size: 15px;
       }
@@ -420,12 +459,12 @@
            onerror="this.style.display='none'; this.parentElement.innerHTML='👑💗🌸'; this.parentElement.style.fontSize='85px'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center';">
     </div>
 
-    <p>أميرتنا الصغيرة.. ربنا يحفظك ويخليكي لينا دايمًا 🥹❤️</p>
+    <p style="font-weight: bold; color: var(--deep-pink);">أميرتنا الصغيرة.. ربنا يحفظك ويخليكي لينا دايمًا 🥹❤️</p>
   </header>
 
   <main>
-
-    <section class="section">
+    <!-- تم إضافة data-aos="fade-up" لعمل تأثير الظهور عند التمرير لكل سكشن -->
+    <section class="section" data-aos="fade-up">
       <h2>🎂 يوم ميلاد أميرتنا</h2>
       <p>
         يوم 12 أكتوبر 2026، يوم مميز اتكتب فيه فصل جديد من الحكاية الجميلة.
@@ -456,7 +495,7 @@
       </p>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>💗 ليلي.. حكاية جميلة</h2>
       <div class="meaning-card">
         <p>
@@ -468,7 +507,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>🌷 أسماء الدلع بتاعتك</h2>
       <p>كل اسم فيهم معمول مخصوص عشانك يا أحلى أميرة.</p>
       <div class="nickname-list">
@@ -483,7 +522,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>📖 حكاية ليلي</h2>
 
       <div class="timeline-card">
@@ -511,13 +550,13 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>💌 جواب صغير ليكي</h2>
       <p id="typedLetter" class="typewriter"></p>
       <button class="main-button" id="letterButton">اقري جوابك يا ليلي 💌</button>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>🍾 رسالة مستخبية مخصوص ليكي</h2>
       <p>اضغطي على الزجاجة وشوفي الرسالة اللي جواها ✨</p>
       <div class="bottle" id="bottle" role="button" tabindex="0" aria-label="افتحي الرسالة">🍾</div>
@@ -531,17 +570,17 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>💖 مقياس الحب</h2>
       <p>هو ينفع نقيس حبنا ليكي أصلًا؟ ده حب أكبر من أي أرقام! 🥹</p>
       <div class="love-meter">
         <div class="love-fill" id="loveFill"></div>
       </div>
       <button class="main-button" id="loveButton">احسبي الحب 💗</button>
-      <p id="loveResult" style="margin-top:15px"></p>
+      <p id="loveResult" style="margin-top:15px; font-weight:bold;"></p>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>💌 رسايل من الناس اللي بيحبوكي</h2>
 
       <div class="message-card">
@@ -566,7 +605,6 @@
         </p>
       </div>
 
-      <!-- رسالة بوبا بدل رسائل الجد والجدة -->
       <div class="message-card">
         <div class="person">🎀 بوبا</div>
         <p>
@@ -584,7 +622,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>🤲 دعوة من القلب</h2>
       <div class="dua">
         اللهم احفظ ليلي محمد بعينك التي لا تنام،
@@ -602,13 +640,13 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>🎁 مفاجأة صغيرة</h2>
       <p>فيه مفاجأة مستخبية مستنياكي.. جاهزة؟</p>
       <button class="main-button" id="surpriseButton">افتحي المفاجأة 🎁</button>
 
       <div class="surprise" id="surprise">
-        <h3 style="color:#e84e8a;margin-bottom:12px">يا أحلى ليلي في الدنيا 👑💗</h3>
+        <h3 style="color:#e84e8a;margin-bottom:12px; font-family: 'Amiri', serif;">يا أحلى ليلي في الدنيا 👑💗</h3>
         <p>
           شمس الدنيا تطلع لما تطلع ضحكة منك،
           وربنا يديم عليكي الفرحة ويخلي أيامك كلها ألوان جميلة.
@@ -620,7 +658,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-aos="fade-up">
       <h2>💬 لو محتاجة تحكي</h2>
       <p>
         لو في يوم مضايقة أو محتاجة تتكلمي،
@@ -647,7 +685,17 @@
     <p>مع أطيب الأمنيات من بوبا ❤️</p>
   </footer>
 
+  <!-- استدعاء سكريبت AOS للأنيميشن -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
   <script>
+    // تفعيل الأنيميشن
+    AOS.init({
+      duration: 1000,
+      once: true, // يشتغل مرة واحدة بس
+      offset: 100
+    });
+
     const music = document.getElementById("backgroundMusic");
     const intro = document.getElementById("intro");
     const enterButton = document.getElementById("enterButton");
@@ -681,8 +729,6 @@
       }
     });
 
-    // محاولة تشغيل الأغنية عند فتح الموقع.
-    // لو المتصفح منع التشغيل التلقائي، أول ضغطة من الزائر هتشغلها.
     window.addEventListener("load", () => {
       playMusic();
     });
@@ -693,7 +739,7 @@
       }
     }, { once: true });
 
-    // عداد العمر من تاريخ الميلاد.
+    // عداد العمر من تاريخ الميلاد. (12 أكتوبر 2026)
     const birthDate = new Date("2026-10-12T00:00:00");
 
     function updateAgeCounter() {
@@ -717,7 +763,6 @@
     updateAgeCounter();
     setInterval(updateAgeCounter, 1000);
 
-    // كتابة الجواب حرفًا حرفًا.
     const letter =
       "يا ليلي يا أجمل أميرة،\n\n" +
       "يمكن الكلام مهما كان حلو مش هيقدر يوصف قد إيه وجودك بيخلّي الدنيا ألطف وأجمل.\n\n" +
@@ -750,7 +795,6 @@
       typeNext();
     });
 
-    // فتح الرسالة داخل الزجاجة.
     const bottle = document.getElementById("bottle");
     const bottleMessage = document.getElementById("bottleMessage");
 
@@ -767,7 +811,6 @@
       }
     });
 
-    // مقياس الحب.
     document.getElementById("loveButton").addEventListener("click", () => {
       const fill = document.getElementById("loveFill");
       const result = document.getElementById("loveResult");
@@ -779,13 +822,11 @@
       makeHearts(20);
     });
 
-    // المفاجأة.
     document.getElementById("surpriseButton").addEventListener("click", () => {
       document.getElementById("surprise").classList.toggle("show");
       makeHearts(18);
     });
 
-    // قلوب متحركة في الخلفية.
     function makeHearts(amount = 5) {
       const symbols = ["💗", "💕", "💖", "🌸", "✨", "🎀"];
 
