@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090b20">
+<meta name="theme-color" content="#080b1e">
 <title>مملكة الأميرة ليلي محمد 👑</title>
 
 <style>
@@ -11,9 +11,7 @@
 
 :root {
   --bg:#080b1e;
-  --bg2:#111630;
   --card:#151b38;
-  --card2:#1c2144;
   --pink:#ff9ed2;
   --pink2:#f7c5e6;
   --gold:#f7d78a;
@@ -25,7 +23,6 @@
 }
 
 * { box-sizing:border-box; }
-
 html { scroll-behavior:smooth; }
 
 body {
@@ -41,14 +38,10 @@ body {
 }
 
 button { font:inherit; }
-
-button:focus-visible, a:focus-visible {
+button:focus-visible {
   outline:2px solid var(--gold);
   outline-offset:4px;
 }
-
-a { color:inherit; }
-
 .hidden { display:none !important; }
 
 #stars {
@@ -70,38 +63,28 @@ a { color:inherit; }
   0%,100% { opacity:.25; transform:scale(.8); }
   50% { opacity:1; transform:scale(1.2); }
 }
-
 @keyframes rise {
   from { opacity:0; transform:translateY(24px); }
   to { opacity:1; transform:translateY(0); }
 }
-
-@keyframes glow {
-  0%,100% { filter:drop-shadow(0 0 7px rgba(247,215,138,.15)); }
-  50% { filter:drop-shadow(0 0 20px rgba(247,215,138,.6)); }
-}
-
 @keyframes float {
   0%,100% { transform:translateY(0); }
   50% { transform:translateY(-9px); }
 }
-
-@keyframes gateOpen {
-  from { transform:perspective(700px) rotateY(0); }
-  to { transform:perspective(700px) rotateY(-100deg); }
-}
-
 @keyframes shimmer {
   0% { background-position:0% 50%; }
   100% { background-position:200% 50%; }
 }
-
 @keyframes heartFloat {
   0% { transform:translateY(0) rotate(0); opacity:0; }
   15% { opacity:.8; }
   100% { transform:translateY(-180px) rotate(25deg); opacity:0; }
 }
+@keyframes fall {
+  to { transform:translateY(110vh) rotate(500deg); opacity:.15; }
+}
 
+/* شاشة الدخول */
 #intro {
   position:fixed;
   inset:0;
@@ -115,7 +98,7 @@ a { color:inherit; }
   background:
     radial-gradient(ellipse at center,rgba(87,67,145,.28),transparent 55%),
     linear-gradient(180deg,#07091a,#11152f 70%,#080a1b);
-  transition:opacity 1.2s ease, visibility 1.2s ease;
+  transition:opacity 1.2s ease,visibility 1.2s ease;
   overflow:hidden;
 }
 
@@ -127,7 +110,7 @@ a { color:inherit; }
 
 .intro-moon {
   position:absolute;
-  top:8%;
+  top:6%;
   left:12%;
   font-size:clamp(35px,8vw,66px);
   color:var(--gold);
@@ -158,18 +141,18 @@ a { color:inherit; }
   color:#d8d7ef;
   font-size:15px;
   line-height:2;
-  margin:12px 0 25px;
+  margin:12px 0 20px;
   animation:rise 1.3s .35s both;
 }
 
 .palace-scene {
   position:relative;
   width:min(440px,90vw);
-  height:235px;
+  height:215px;
   display:flex;
   align-items:flex-end;
   justify-content:center;
-  margin:4px 0 22px;
+  margin:4px 0 20px;
   animation:rise 1.5s .4s both;
 }
 
@@ -183,8 +166,8 @@ a { color:inherit; }
 
 .palace {
   position:relative;
-  width:235px;
-  height:185px;
+  width:220px;
+  height:170px;
   border:2px solid rgba(247,215,138,.72);
   border-bottom:0;
   border-radius:115px 115px 0 0;
@@ -196,14 +179,13 @@ a { color:inherit; }
   content:"";
   position:absolute;
   bottom:0;
-  width:58px;
-  height:130px;
+  width:52px;
+  height:120px;
   border:2px solid rgba(247,215,138,.65);
   background:linear-gradient(180deg,#25294f,#12162f);
 }
-
-.palace:before { right:-49px; border-radius:40px 40px 0 0; }
-.palace:after { left:-49px; border-radius:40px 40px 0 0; }
+.palace:before { right:-44px; border-radius:40px 40px 0 0; }
+.palace:after { left:-44px; border-radius:40px 40px 0 0; }
 
 .tower-top {
   position:absolute;
@@ -225,11 +207,10 @@ a { color:inherit; }
   border-radius:14px 14px 0 0;
   background:#ffdf9a;
   box-shadow:0 0 19px rgba(247,215,138,.65);
-  top:44px;
+  top:40px;
 }
-
-.palace-window.one { left:48px; }
-.palace-window.two { right:48px; }
+.palace-window.one { left:43px; }
+.palace-window.two { right:43px; }
 
 .palace-door {
   position:absolute;
@@ -237,13 +218,12 @@ a { color:inherit; }
   left:50%;
   transform:translateX(-50%);
   width:62px;
-  height:99px;
+  height:92px;
   border:2px solid var(--gold);
   border-bottom:0;
   border-radius:34px 34px 0 0;
   background:#080b20;
   overflow:hidden;
-  box-shadow:0 0 20px rgba(247,215,138,.16);
 }
 
 .door-light {
@@ -253,11 +233,9 @@ a { color:inherit; }
   opacity:0;
   transition:opacity 1s;
 }
-
 .palace-scene.opening .door-light { opacity:1; }
 
 .gate-button {
-  position:relative;
   border:1px solid rgba(247,215,138,.8);
   border-radius:50px;
   padding:14px 29px;
@@ -270,17 +248,11 @@ a { color:inherit; }
   transition:transform .25s,box-shadow .25s;
   animation:shimmer 5s linear infinite;
 }
-
 .gate-button:hover {
   transform:translateY(-3px);
   box-shadow:0 0 35px rgba(247,215,138,.35);
 }
-
-.intro-note {
-  color:#aeb1d8;
-  font-size:12px;
-  margin-top:14px;
-}
+.intro-note { color:#aeb1d8; font-size:12px; margin-top:14px; }
 
 main {
   position:relative;
@@ -292,7 +264,6 @@ main {
 }
 
 header { text-align:center; padding:25px 8px 15px; }
-
 .crown {
   display:inline-block;
   font-size:46px;
@@ -301,7 +272,6 @@ header { text-align:center; padding:25px 8px 15px; }
 }
 
 h1,h2,h3 { line-height:1.6; }
-
 h1 {
   font-family:'Amiri',serif;
   font-size:clamp(32px,7vw,52px);
@@ -344,14 +314,8 @@ h1 {
   background:linear-gradient(90deg,transparent,rgba(255,215,138,.5),transparent);
 }
 
-.section-title {
-  color:var(--gold);
-  font-size:22px;
-  margin:0 0 12px;
-}
-
+.section-title { color:var(--gold); font-size:22px; margin:0 0 12px; }
 .center { text-align:center; }
-
 .muted { color:var(--muted); line-height:2; }
 
 .btn {
@@ -364,12 +328,7 @@ h1 {
   transition:transform .2s,border-color .2s;
   margin:5px;
 }
-
-.btn:hover {
-  transform:translateY(-2px);
-  border-color:var(--gold);
-}
-
+.btn:hover { transform:translateY(-2px); border-color:var(--gold); }
 .btn.gold {
   background:linear-gradient(110deg,#f7d78a,#ffe9b6);
   color:#21182d;
@@ -383,7 +342,6 @@ h1 {
   flex-wrap:wrap;
   margin:18px 0;
 }
-
 .count-box {
   min-width:78px;
   padding:13px 10px;
@@ -391,14 +349,12 @@ h1 {
   border-radius:16px;
   background:rgba(8,11,30,.55);
 }
-
 .count-number {
   display:block;
   color:var(--pink);
   font-size:25px;
   font-weight:800;
 }
-
 .count-label { color:var(--muted); font-size:12px; }
 
 .castle-grid,.gift-grid,.message-grid {
@@ -419,13 +375,9 @@ h1 {
 .castle-room {
   cursor:pointer;
   transition:transform .25s,border-color .25s;
+  color:var(--text);
 }
-
-.castle-room:hover {
-  transform:translateY(-4px);
-  border-color:var(--pink);
-}
-
+.castle-room:hover { transform:translateY(-4px); border-color:var(--pink); }
 .room-icon { font-size:35px; display:block; margin-bottom:8px; }
 .castle-room strong,.gift strong { color:var(--pink2); display:block; }
 .castle-room small { color:var(--muted); line-height:1.8; }
@@ -466,7 +418,6 @@ h1 {
   border:0;
   display:block;
 }
-
 .envelope:before {
   content:"";
   position:absolute;
@@ -474,7 +425,6 @@ h1 {
   background:#f8c8e4;
   clip-path:polygon(0 0,50% 57%,100% 0);
 }
-
 .envelope:after {
   content:"💌";
   position:absolute;
@@ -486,33 +436,28 @@ h1 {
 .gift {
   cursor:pointer;
   transition:transform .25s,border-color .25s;
+  color:var(--text);
 }
-
 .gift:hover { transform:translateY(-4px); border-color:var(--gold); }
-
 .gift-icon {
   display:block;
   font-size:45px;
   margin:3px 0 12px;
   animation:float 4s ease-in-out infinite;
 }
-
 .gift p { color:var(--muted); font-size:13px; line-height:1.8; }
 
 .story-chapter {
   border-bottom:1px solid rgba(247,215,138,.13);
   padding:13px 0;
 }
-
 .story-chapter:last-child { border-bottom:0; }
-
 .story-chapter summary {
   cursor:pointer;
   color:var(--pink2);
   font-weight:700;
   line-height:2;
 }
-
 .story-chapter p { color:var(--muted); line-height:2.1; }
 
 .key-row {
@@ -521,18 +466,20 @@ h1 {
   gap:15px;
   margin:18px 0;
 }
-
 .key {
   font-size:30px;
   opacity:.3;
   filter:grayscale(1);
   transition:all .3s;
 }
-
 .key.found {
   opacity:1;
   filter:none;
-  animation:glow 2s infinite;
+  animation:keyGlow 2s infinite;
+}
+@keyframes keyGlow {
+  0%,100% { filter:drop-shadow(0 0 2px var(--gold)); }
+  50% { filter:drop-shadow(0 0 12px var(--gold)); }
 }
 
 .well {
@@ -549,7 +496,6 @@ h1 {
   font-size:36px;
   box-shadow:0 0 22px rgba(169,200,255,.12);
 }
-
 .well:before {
   content:"";
   position:absolute;
@@ -561,7 +507,13 @@ h1 {
   background:#b7a4e5;
 }
 
-#wishText { min-height:52px; }
+#heartPulse {
+  display:inline-block;
+  font-size:75px;
+  line-height:1.5;
+  transform-origin:center;
+  filter:drop-shadow(0 0 12px rgba(255,100,160,.35));
+}
 
 #toast {
   position:fixed;
@@ -582,7 +534,6 @@ h1 {
   transition:all .3s;
   box-shadow:var(--shadow);
 }
-
 #toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
 .heart {
@@ -600,19 +551,12 @@ h1 {
   pointer-events:none;
   overflow:hidden;
 }
-
 .confetti {
   position:absolute;
   top:-20px;
   animation:fall 3.5s linear forwards;
   font-size:20px;
 }
-
-@keyframes fall {
-  to { transform:translateY(110vh) rotate(500deg); opacity:.15; }
-}
-
-footer { display:none; }
 
 @media(max-width:500px) {
   main { padding:15px 12px 45px; }
@@ -637,10 +581,9 @@ footer { display:none; }
 <div id="birthdayBurst" aria-hidden="true"></div>
 <div id="toast" role="status" aria-live="polite"></div>
 
-<!-- لا يوجد مشغل صوت ظاهر -->
-<audio id="royalSong" src="kafa.mp3" preload="auto" loop></audio>
+<!-- ملف الأغنية لازم يكون بجوار index.html -->
+<audio id="royalSong" src="./kafa.mp3" preload="auto" loop></audio>
 
-<!-- بوابة الدخول الجديدة -->
 <section id="intro" aria-label="بوابة مملكة الأميرة ليلي">
   <div class="intro-moon">☾</div>
   <div class="intro-kicker">✦ حكاية صغيرة في ليلة مليانة نجوم ✦</div>
@@ -676,14 +619,53 @@ footer { display:none; }
     </p>
   </header>
 
+  <!-- عمر ليلي ونبضات القلب -->
+  <section class="panel center">
+    <h2 class="section-title">⏳ عمر الأميرة ليلي</h2>
+    <p class="muted">كل ثانية بتعدّي بتضيف لحكايتك ذكرى جديدة 💗</p>
+
+    <div class="countdown">
+      <div class="count-box">
+        <span class="count-number" id="ageDays">0</span>
+        <span class="count-label">يوم</span>
+      </div>
+      <div class="count-box">
+        <span class="count-number" id="ageHours">0</span>
+        <span class="count-label">ساعة</span>
+      </div>
+      <div class="count-box">
+        <span class="count-number" id="ageMinutes">0</span>
+        <span class="count-label">دقيقة</span>
+      </div>
+      <div class="count-box">
+        <span class="count-number" id="ageSeconds">0</span>
+        <span class="count-label">ثانية</span>
+      </div>
+    </div>
+
+    <div class="gold-line"></div>
+
+    <h2 class="section-title">💗 نبضات قلب الأميرة</h2>
+    <div id="heartPulse">💗</div>
+    <p class="muted">كل نبضة رمز للحياة، وكل لحظة ذكرى جميلة.</p>
+
+    <div class="countdown">
+      <div class="count-box" style="min-width:200px">
+        <span class="count-number" id="heartBeats">0</span>
+        <span class="count-label">نبضة تقديرية منذ الولادة</span>
+      </div>
+    </div>
+    <p class="muted" style="font-size:12px">
+      النبضات تقديرية حسابيًا على أساس 70 نبضة في الدقيقة، وليست قياسًا طبيًا حقيقيًا.
+    </p>
+  </section>
+
   <section class="panel center">
     <h2 class="section-title">🌙 حكاية يوم مميز</h2>
     <p class="muted">يوم ما جه النور الصغير اللي خلّى الدنيا أحلى</p>
-    <h3 style="color:var(--pink2);font-size:25px;margin:5px 0">
-      12 أكتوبر 2026
-    </h3>
+    <h3 style="color:var(--pink2);font-size:25px;margin:5px 0">12 أكتوبر 2026</h3>
     <div id="birthdayStatus" class="muted">لحظة بنجهّز فيها مفاجأة للأميرة…</div>
-    <div class="countdown" id="countdown">
+    <div class="countdown" id="birthdayCountdown">
       <div class="count-box"><span class="count-number" id="days">--</span><span class="count-label">يوم</span></div>
       <div class="count-box"><span class="count-number" id="hours">--</span><span class="count-label">ساعة</span></div>
       <div class="count-box"><span class="count-number" id="minutes">--</span><span class="count-label">دقيقة</span></div>
@@ -762,17 +744,14 @@ footer { display:none; }
       <summary>الفصل الأول: نجمة نزلت من السما ✨</summary>
       <p>كان يا ما كان، في ليلة هادية مليانة نجوم، ظهرت نجمة صغيرة اسمها ليلي. النجمة دي كانت مختلفة عن كل النجوم؛ نورها دافي، ووجودها يخلّي أي مكان حواليها أحلى. ومن يومها، بقى ليها مكان مخصوص في قلوب كل اللي عرفوها.</p>
     </details>
-
     <details class="story-chapter">
       <summary>الفصل التاني: مفتاح السعادة 🗝️</summary>
       <p>كبرت الأميرة الصغيرة وهي بتكتشف إن أجمل كنوز الدنيا مش دهب ولا فضة؛ أجمل كنز هو قلب طيب، وضحكة صافية، وناس بتحبها بصدق. وكل يوم كانت بتتعلم إن الحنية قوة، وإن الكلمة الحلوة ممكن تنوّر يوم حد كامل.</p>
     </details>
-
     <details class="story-chapter">
       <summary>الفصل التالت: أحلام أكبر من المملكة 🌙</summary>
       <p>وكان للأميرة أحلام كتير، وكل حلم كان نجمة بتنور في سماها. وكانت عارفة إن الطريق ممكن يطول، بس طول ما عندها قلب شجاع وأمل جميل، تقدر تتعلم وتكبر وتوصل لحاجات كتير. والمملكة كلها هتفضل تشجعها وتفرح بكل خطوة تعملها.</p>
     </details>
-
     <details class="story-chapter">
       <summary>الفصل الرابع: أجمل حكاية لسه جاية 🌸</summary>
       <p>أما أجمل فصل في الحكاية، فهو لسه ما اتكتبش. هيتكتب بالضحكات، والذكريات، والأيام الحلوة، والحاجات الجديدة اللي الأميرة هتكتشفها. وكل يوم جديد هو صفحة بيضا، مستنية ليلي تملأها بحكايتها الخاصة.</p>
@@ -813,7 +792,7 @@ footer { display:none; }
   <section class="panel center">
     <h2 class="section-title">🗝️ سر الكنز الملكي</h2>
     <p class="muted">في 3 مفاتيح مستخبيين في المملكة. اجمعيهم عشان تفتحي الكنز!</p>
-    <div class="key-row" aria-label="المفاتيح التي تم جمعها">
+    <div class="key-row">
       <span class="key" id="key0">🗝️</span>
       <span class="key" id="key1">🗝️</span>
       <span class="key" id="key2">🗝️</span>
@@ -833,63 +812,69 @@ footer { display:none; }
 </main>
 
 <script>
-/* نجوم السماء */
+/* إنشاء نجوم السماء */
 const stars = document.getElementById('stars');
+
 for (let i = 0; i < 75; i++) {
-  const s = document.createElement('span');
-  s.className = 'star';
-  s.textContent = Math.random() > .82 ? '✦' : '·';
-  s.style.left = Math.random() * 100 + '%';
-  s.style.top = Math.random() * 100 + '%';
-  s.style.fontSize = (Math.random() * 12 + 5) + 'px';
-  s.style.animationDelay = (Math.random() * 4) + 's';
-  s.style.animationDuration = (2 + Math.random() * 4) + 's';
-  stars.appendChild(s);
+  const star = document.createElement('span');
+  star.className = 'star';
+  star.textContent = Math.random() > .82 ? '✦' : '·';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.fontSize = (Math.random() * 12 + 5) + 'px';
+  star.style.animationDelay = Math.random() * 4 + 's';
+  star.style.animationDuration = (2 + Math.random() * 4) + 's';
+  stars.appendChild(star);
 }
 
-/* تشغيل الأغنية تلقائيًا من غير مشغل ظاهر */
-const song = document.getElementById('royalSong');
-song.volume = 0.65;
+/* الأغنية: الملف kafa.mp3 بجوار index.html */
+const royalSong = document.getElementById('royalSong');
+royalSong.volume = 0.8;
 
-function attemptMusic() {
-  const attempt = song.play();
-  if (attempt && typeof attempt.catch === 'function') {
-    attempt.catch(() => {
-      // بعض المتصفحات تمنع الصوت التلقائي.
-      // نعيد المحاولة عند أول تفاعل حقيقي من الزائر.
+function playRoyalSong() {
+  if (!royalSong.paused) return;
+
+  const playAttempt = royalSong.play();
+
+  if (playAttempt && typeof playAttempt.catch === 'function') {
+    playAttempt.catch(error => {
+      console.log('تعذر تشغيل الأغنية تلقائيًا:', error);
     });
   }
 }
 
-attemptMusic();
-
-let musicStarted = false;
-function startMusicOnInteraction() {
-  if (musicStarted) return;
-  musicStarted = true;
-  attemptMusic();
+// محاولة تشغيل الأغنية عند تحميل الصفحة
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', playRoyalSong, { once:true });
+} else {
+  playRoyalSong();
 }
-document.addEventListener('pointerdown', startMusicOnInteraction, { once:true });
-document.addEventListener('keydown', startMusicOnInteraction, { once:true });
 
-/* إشعار صغير */
+// إعادة المحاولة عند أول لمسة أو ضغطة من الزائر
+function unlockRoyalSong() {
+  if (royalSong.paused) playRoyalSong();
+}
+document.addEventListener('pointerdown', unlockRoyalSong);
+document.addEventListener('keydown', unlockRoyalSong);
+
+/* رسائل التنبيه */
 let toastTimer;
 function toast(message) {
-  const el = document.getElementById('toast');
-  el.textContent = message;
-  el.classList.add('show');
+  const element = document.getElementById('toast');
+  element.textContent = message;
+  element.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+  toastTimer = setTimeout(() => element.classList.remove('show'), 2600);
 }
 
-/* دخلة البوابة */
+/* الدخول للقصر */
 const intro = document.getElementById('intro');
 const kingdom = document.getElementById('kingdom');
 const palaceScene = document.getElementById('palaceScene');
 const enterButton = document.getElementById('enterButton');
 
 enterButton.addEventListener('click', () => {
-  startMusicOnInteraction();
+  playRoyalSong();
   enterButton.disabled = true;
   enterButton.textContent = 'أهلًا بأميرة المملكة… ✨';
   palaceScene.classList.add('opening');
@@ -907,23 +892,70 @@ enterButton.addEventListener('click', () => {
   }, 1250);
 });
 
-/* رسائل عائمة */
+/* قلوب عائمة */
 function makeHeart() {
-  const h = document.createElement('span');
-  h.className = 'heart';
-  h.textContent = ['💗','✨','🌸','💕','✦'][Math.floor(Math.random()*5)];
-  h.style.left = Math.random() * 100 + 'vw';
-  h.style.fontSize = (15 + Math.random() * 18) + 'px';
-  document.body.appendChild(h);
-  setTimeout(() => h.remove(), 3900);
+  const heart = document.createElement('span');
+  heart.className = 'heart';
+  heart.textContent = ['💗','✨','🌸','💕','✦'][Math.floor(Math.random()*5)];
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (15 + Math.random() * 18) + 'px';
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 3900);
 }
 
-/* عداد تاريخ الميلاد */
-const birthday = new Date('2026-10-12T00:00:00');
+/* عمر ليلي من تاريخ الميلاد */
+const leilyBirth = new Date(2026, 9, 12, 0, 0, 0);
 
-function updateCountdown() {
+function updateLeilyCounters() {
   const now = new Date();
-  let diff = birthday - now;
+  const elapsed = Math.max(0, now.getTime() - leilyBirth.getTime());
+
+  const totalSeconds = Math.floor(elapsed / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById('ageDays').textContent = days.toLocaleString('ar-EG');
+  document.getElementById('ageHours').textContent = hours.toLocaleString('ar-EG');
+  document.getElementById('ageMinutes').textContent = minutes.toLocaleString('ar-EG');
+  document.getElementById('ageSeconds').textContent = seconds.toLocaleString('ar-EG');
+
+  // تقدير رياضي فقط: 70 نبضة في الدقيقة
+  const estimatedBeats = Math.floor(elapsed / 1000 * (70 / 60));
+  document.getElementById('heartBeats').textContent =
+    estimatedBeats.toLocaleString('ar-EG');
+}
+
+updateLeilyCounters();
+setInterval(updateLeilyCounters, 1000);
+
+/* نبض القلب المتحرك */
+const pulseHeart = document.getElementById('heartPulse');
+
+if (pulseHeart.animate) {
+  pulseHeart.animate(
+    [
+      { transform:'scale(1)' },
+      { transform:'scale(1.2)' },
+      { transform:'scale(1)' },
+      { transform:'scale(1.12)' },
+      { transform:'scale(1)' }
+    ],
+    {
+      duration:1100,
+      iterations:Infinity,
+      easing:'ease-in-out'
+    }
+  );
+}
+
+/* عداد يوم الميلاد */
+const birthday = new Date(2026, 9, 12, 0, 0, 0);
+
+function updateBirthdayCountdown() {
+  const now = new Date();
+  const diff = birthday.getTime() - now.getTime();
   const status = document.getElementById('birthdayStatus');
 
   if (diff > 0) {
@@ -933,14 +965,14 @@ function updateCountdown() {
     document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000);
     document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000);
   } else {
-    const sameDay = now.getFullYear() === 2026 &&
-      now.getMonth() === 9 && now.getDate() === 12;
+    const isBirthdayToday =
+      now.getFullYear() === 2026 &&
+      now.getMonth() === 9 &&
+      now.getDate() === 12;
 
-    if (sameDay) {
-      status.textContent = 'النهارده يوم الأميرة ليلي! كل سنة وإنتي نور المملكة 🎂';
-    } else {
-      status.textContent = 'يوم 12 أكتوبر 2026 كان بداية الحكاية الجميلة. 💗';
-    }
+    status.textContent = isBirthdayToday
+      ? 'النهارده يوم الأميرة ليلي! كل سنة وإنتي نور المملكة 🎂'
+      : 'يوم 12 أكتوبر 2026 كان بداية الحكاية الجميلة. 💗';
 
     document.getElementById('days').textContent = '💗';
     document.getElementById('hours').textContent = '✨';
@@ -948,23 +980,24 @@ function updateCountdown() {
     document.getElementById('seconds').textContent = '🌸';
   }
 }
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
-/* احتفال عيد الميلاد */
+updateBirthdayCountdown();
+setInterval(updateBirthdayCountdown, 1000);
+
+/* احتفال */
 function celebrate() {
   const burst = document.getElementById('birthdayBurst');
   burst.innerHTML = '';
   const bits = ['✨','🎉','💗','🌸','⭐','🎀','👑','🎂'];
 
   for (let i = 0; i < 48; i++) {
-    const c = document.createElement('span');
-    c.className = 'confetti';
-    c.textContent = bits[Math.floor(Math.random() * bits.length)];
-    c.style.left = Math.random() * 100 + '%';
-    c.style.animationDelay = Math.random() * 1.5 + 's';
-    c.style.animationDuration = (2.4 + Math.random() * 2) + 's';
-    burst.appendChild(c);
+    const confetti = document.createElement('span');
+    confetti.className = 'confetti';
+    confetti.textContent = bits[Math.floor(Math.random() * bits.length)];
+    confetti.style.left = Math.random() * 100 + '%';
+    confetti.style.animationDelay = Math.random() * 1.5 + 's';
+    confetti.style.animationDuration = (2.4 + Math.random() * 2) + 's';
+    burst.appendChild(confetti);
   }
 
   toast('كل سنة والأميرة ليلي بألف خير! 🎂👑');
@@ -974,6 +1007,7 @@ document.getElementById('birthdayButton').addEventListener('click', celebrate);
 
 /* أبواب القصر */
 const roomContent = document.getElementById('roomContent');
+
 const roomData = {
   letter: {
     title:'💌 غرفة الرسالة',
@@ -996,41 +1030,52 @@ const roomData = {
 document.querySelectorAll('[data-room]').forEach(button => {
   button.addEventListener('click', () => {
     const room = roomData[button.dataset.room];
-    roomContent.innerHTML = '<strong style="color:var(--gold)">' +
+
+    roomContent.innerHTML =
+      '<strong style="color:var(--gold)">' +
       room.title + '</strong><br>' + room.text;
+
     roomContent.classList.remove('hidden');
 
-    const target = {
+    const targetId = {
       letter:'letterSection',
       family:'familySection',
       story:'storySection',
       gifts:'giftsSection'
     }[button.dataset.room];
 
-    document.getElementById(target).scrollIntoView({
-      behavior:'smooth', block:'start'
+    document.getElementById(targetId).scrollIntoView({
+      behavior:'smooth',
+      block:'start'
     });
   });
 });
 
 /* الرسالة المتحركة */
-const letter = 'يا ليلي يا أجمل هدية في الدنيا… 💗\\n\\nيمكن لسه الحكاية في أولها، لكن وجودك لوحده كفاية يخلي الأيام أحلى. أتمنالك حياة مليانة ضحك وراحة وناس طيبين حواليكي، وأيام تلاقي فيها الخير في كل خطوة.\\n\\nخلي قلبك دايمًا مليان أمل، ومتخليش حاجة تطفي نورك. إنتي أميرة تستاهل كل حاجة جميلة، وربنا يحفظك ويبارك في عمرك، وتفضلي دايمًا سبب فرحة لكل اللي بيحبوكي.\\n\\nمن كل قلبي… لمملكتك الصغيرة يا ليلي. 👑🌸';
+const letter =
+  'يا ليلي يا أجمل هدية في الدنيا… 💗\n\n' +
+  'يمكن لسه الحكاية في أولها، لكن وجودك لوحده كفاية يخلي الأيام أحلى. أتمنالك حياة مليانة ضحك وراحة وناس طيبين حواليكي، وأيام تلاقي فيها الخير في كل خطوة.\n\n' +
+  'خلي قلبك دايمًا مليان أمل، ومتخليش حاجة تطفي نورك. إنتي أميرة تستاهل كل حاجة جميلة، وربنا يحفظك ويبارك في عمرك، وتفضلي دايمًا سبب فرحة لكل اللي بيحبوكي.\n\n' +
+  'من كل قلبي… لمملكتك الصغيرة يا ليلي. 👑🌸';
 
 let letterOpened = false;
 let typingTimer;
 
 document.getElementById('openLetter').addEventListener('click', () => {
+  const output = document.getElementById('letterText');
+  const cursor = document.getElementById('cursor');
+
   if (letterOpened) {
-    document.getElementById('letterText').textContent = letter;
-    document.getElementById('cursor').textContent = '';
+    clearTimeout(typingTimer);
+    output.textContent = letter;
+    cursor.textContent = '';
     return;
   }
 
   letterOpened = true;
-  const output = document.getElementById('letterText');
-  const cursor = document.getElementById('cursor');
   output.textContent = '';
   let index = 0;
+  cursor.textContent = '✦';
 
   function typeNext() {
     if (index < letter.length) {
@@ -1042,11 +1087,10 @@ document.getElementById('openLetter').addEventListener('click', () => {
     }
   }
 
-  cursor.textContent = '✦';
   typeNext();
 });
 
-/* صناديق الهدايا */
+/* الهدايا */
 const gifts = [
   '🎀 هديتك الأولى: دعوة من القلب إن ربنا يملأ أيامك راحة وفرحة، ويبعد عنك كل حزن، ويقرّب منك كل حاجة حلوة.',
   '💎 هديتك التانية: افتكري دايمًا إنك تستاهلي المعاملة الطيبة، والكلام الحلو، والفرص الجميلة. خدي وقتك في أحلامك، وافتخري بكل خطوة بتعمليها.',
@@ -1057,6 +1101,7 @@ document.querySelectorAll('[data-gift]').forEach(button => {
   button.addEventListener('click', () => {
     const index = Number(button.dataset.gift);
     const result = document.getElementById('giftResult');
+
     result.textContent = gifts[index];
     result.classList.remove('hidden');
     button.querySelector('.gift-icon').textContent = '💝';
@@ -1076,25 +1121,28 @@ const wishes = [
 ];
 
 let lastWish = -1;
+
 document.getElementById('wishButton').addEventListener('click', () => {
   let n;
-  do { n = Math.floor(Math.random() * wishes.length); }
-  while (wishes.length > 1 && n === lastWish);
-  lastWish = n;
+  do {
+    n = Math.floor(Math.random() * wishes.length);
+  } while (wishes.length > 1 && n === lastWish);
 
+  lastWish = n;
   document.getElementById('wishText').textContent = wishes[n];
   makeHeart();
 });
 
-/* جمع المفاتيح */
-let foundKeys = new Set();
+/* المفاتيح والكنز */
+const foundKeys = new Set();
+
 document.getElementById('findKey').addEventListener('click', () => {
   if (foundKeys.size >= 3) {
     toast('جمعتي المفاتيح كلها! افتحي الكنز 👑');
     return;
   }
 
-  let next = [0,1,2].find(i => !foundKeys.has(i));
+  const next = [0,1,2].find(i => !foundKeys.has(i));
   foundKeys.add(next);
   document.getElementById('key' + next).classList.add('found');
 
@@ -1114,11 +1162,13 @@ document.getElementById('findKey').addEventListener('click', () => {
 
 document.getElementById('openTreasure').addEventListener('click', () => {
   const treasure = document.getElementById('treasureText');
+
   treasure.innerHTML =
     '<div style="font-size:45px">👑💎✨</div>' +
     '<strong style="color:var(--gold)">الكنز الملكي اتفتح!</strong><br>' +
     'أغلى كنز في المملكة مش دهب ولا جواهر… أغلى كنز هو قلبك الطيب، وضحكتك الجميلة، وكل الأيام الحلوة اللي لسه مستنياكي. ' +
     'ربنا يحفظك يا ليلي ويكتبلك مستقبل أجمل من كل أحلامك. 💗';
+
   treasure.classList.remove('hidden');
   celebrate();
 });
