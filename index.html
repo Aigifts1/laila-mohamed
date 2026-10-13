@@ -2,1003 +2,1131 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffe9f3">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b20">
 <title>مملكة الأميرة ليلي محمد 👑</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Amiri:wght@400;700&display=swap');
 
 :root {
-  --bg: #fff8fc;
-  --bg2: #eef8ff;
-  --card: rgba(255,255,255,.88);
-  --pink: #e875aa;
-  --pink2: #ffb8d6;
-  --blue: #9bd5fa;
-  --purple: #b9a8f5;
-  --text: #66546f;
-  --muted: #987f9d;
-  --border: rgba(255,255,255,.95);
-  --shadow: 0 12px 35px rgba(160,128,177,.13);
+  --bg:#080b1e;
+  --bg2:#111630;
+  --card:#151b38;
+  --card2:#1c2144;
+  --pink:#ff9ed2;
+  --pink2:#f7c5e6;
+  --gold:#f7d78a;
+  --blue:#a9c8ff;
+  --text:#fff5ff;
+  --muted:#c7c6e4;
+  --border:rgba(247,215,138,.25);
+  --shadow:0 15px 45px rgba(0,0,0,.28);
 }
 
-body.night {
-  --bg: #201c3b;
-  --bg2: #252d4b;
-  --card: rgba(47,43,76,.93);
-  --pink: #ffafd3;
-  --pink2: #cba5fa;
-  --blue: #a9dcff;
-  --purple: #c9b7ff;
-  --text: #f8eefa;
-  --muted: #d0bfdf;
-  --border: rgba(255,255,255,.09);
-  --shadow: 0 12px 35px rgba(0,0,0,.18);
-}
+* { box-sizing:border-box; }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html { scroll-behavior: smooth; }
+html { scroll-behavior:smooth; }
 
 body {
-  font-family: 'Cairo', sans-serif;
-  color: var(--text);
-  min-height: 100vh;
+  margin:0;
+  font-family:'Cairo',sans-serif;
+  color:var(--text);
   background:
-    radial-gradient(circle at 10% 5%, color-mix(in srgb, var(--pink2) 30%, transparent), transparent 30%),
-    radial-gradient(circle at 90% 28%, color-mix(in srgb, var(--blue) 30%, transparent), transparent 32%),
-    linear-gradient(145deg, var(--bg), var(--bg2));
-  transition: background .5s ease, color .4s ease;
-  overflow-x: hidden;
+    radial-gradient(ellipse at 15% 10%,rgba(103,82,180,.17),transparent 35%),
+    radial-gradient(ellipse at 90% 35%,rgba(255,125,195,.08),transparent 35%),
+    linear-gradient(180deg,#080b1e,#10132d 48%,#080b1e);
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-button {
-  font: inherit;
-  cursor: pointer;
-  border: none;
+button { font:inherit; }
+
+button:focus-visible, a:focus-visible {
+  outline:2px solid var(--gold);
+  outline-offset:4px;
 }
 
-button:focus-visible {
-  outline: 3px solid var(--purple);
-  outline-offset: 4px;
+a { color:inherit; }
+
+.hidden { display:none !important; }
+
+#stars {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:0;
 }
 
-button, .card, .castle-room, .gift-box {
-  -webkit-tap-highlight-color: transparent;
+.star {
+  position:absolute;
+  color:#fff4ca;
+  animation:twinkle 3s ease-in-out infinite;
+  opacity:.65;
 }
 
-.page {
-  width: min(920px, 100%);
-  margin: auto;
-  padding: 18px 14px 50px;
-  position: relative;
-  z-index: 1;
-}
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 17px;
-}
-
-.brand {
-  font-weight: 900;
-  color: var(--pink);
-  font-size: 13px;
-}
-
-.pill-button {
-  border-radius: 30px;
-  padding: 9px 14px;
-  color: var(--text);
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.hero {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding: 35px 17px 32px;
-  border-radius: 32px;
-  border: 2px solid var(--border);
-  background: linear-gradient(135deg,
-    color-mix(in srgb, var(--pink2) 48%, var(--bg)),
-    color-mix(in srgb, var(--blue) 48%, var(--bg)),
-    color-mix(in srgb, var(--purple) 28%, var(--bg)));
-  box-shadow: var(--shadow);
-}
-
-.hero::before, .hero::after {
-  content: "♡";
-  position: absolute;
-  font-size: 100px;
-  color: rgba(255,255,255,.38);
-  pointer-events: none;
-}
-
-.hero::before { top: -15px; right: 5px; transform: rotate(-18deg); }
-.hero::after { bottom: -22px; left: 9px; transform: rotate(15deg); }
-
-.crown {
-  font-size: 51px;
-  display: inline-block;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(-2deg); }
-  50% { transform: translateY(-6px) rotate(2deg); }
-}
-
-.hero h1 {
-  font-size: clamp(28px, 6vw, 48px);
-  line-height: 1.5;
-  color: var(--pink);
-  font-weight: 900;
-  text-shadow: 1px 2px 0 rgba(255,255,255,.75);
-}
-
-.hero p {
-  margin-top: 9px;
-  line-height: 2;
-  font-size: 14px;
-  color: var(--text);
-}
-
-.hero-tag {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 17px;
-  border-radius: 30px;
-  background: var(--card);
-  color: var(--pink);
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.section {
-  margin-top: 20px;
-  padding: 23px 20px;
-  border: 1px solid var(--border);
-  border-radius: 26px;
-  background: var(--card);
-  box-shadow: var(--shadow);
-  animation: enter .65s ease both;
-}
-
-@keyframes enter {
-  from { opacity: 0; transform: translateY(9px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.section-title {
-  text-align: center;
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--pink);
-  margin-bottom: 16px;
-}
-
-.section-subtitle {
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 2;
-  margin: -7px 0 17px;
-}
-
-.welcome {
-  border-radius: 20px;
-  padding: 19px;
-  line-height: 2.2;
-  text-align: center;
-  background: linear-gradient(130deg,
-    color-mix(in srgb, var(--pink2) 18%, var(--card)),
-    color-mix(in srgb, var(--blue) 18%, var(--card)));
-}
-
-.name { color: var(--pink); font-weight: 900; }
-
-.birth-card {
-  text-align: center;
-  padding: 20px 12px;
-  border-radius: 22px;
-  background: linear-gradient(135deg,
-    color-mix(in srgb, var(--blue) 30%, var(--card)),
-    color-mix(in srgb, var(--pink2) 25%, var(--card)));
-}
-
-.birth-icon { font-size: 40px; }
-
-.birth-date {
-  font-size: clamp(22px, 5vw, 31px);
-  color: var(--pink);
-  font-weight: 900;
-  margin: 5px 0;
-}
-
-.birth-card p { line-height: 2; font-size: 13px; }
-
-.soft-button {
-  padding: 11px 17px;
-  border-radius: 30px;
-  background: linear-gradient(100deg, var(--pink), #9acff5);
-  color: white;
-  font-size: 13px;
-  font-weight: 900;
-  box-shadow: 0 6px 18px rgba(210,130,185,.18);
-  transition: transform .2s ease;
-}
-
-.soft-button:hover { transform: translateY(-2px); }
-
-.button-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 15px;
-}
-
-/* القلعة التفاعلية */
-.castle {
-  text-align: center;
-  padding: 20px 12px;
-  border-radius: 23px;
-  background: linear-gradient(135deg,
-    color-mix(in srgb, var(--pink2) 20%, var(--card)),
-    color-mix(in srgb, var(--blue) 25%, var(--card)));
-}
-
-.castle-art {
-  font-size: clamp(48px, 10vw, 75px);
-  line-height: 1.4;
-  margin-bottom: 7px;
-}
-
-.castle-rooms {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.castle-room {
-  padding: 15px 7px;
-  border-radius: 18px;
-  color: var(--text);
-  background: var(--card);
-  border: 1px solid var(--border);
-  transition: transform .2s ease, background .3s ease;
-}
-
-.castle-room:hover { transform: translateY(-3px); }
-
-.castle-room .room-icon { font-size: 28px; display: block; }
-.castle-room strong { display: block; color: var(--pink); font-size: 13px; margin-top: 6px; }
-.castle-room small { display: block; color: var(--muted); font-size: 10px; margin-top: 4px; }
-
-.castle-output {
-  margin-top: 15px;
-  padding: 16px;
-  border-radius: 17px;
-  background: var(--card);
-  line-height: 2.1;
-  font-size: 14px;
-  display: none;
-  animation: enter .4s ease;
-}
-
-.castle-output.show { display: block; }
-
-/* جواب سري */
-.envelope-area { text-align: center; }
-
-.envelope {
-  position: relative;
-  width: min(230px, 75%);
-  height: 145px;
-  margin: 10px auto 20px;
-  background: linear-gradient(135deg, #ffb9d7, #c5e9ff);
-  border-radius: 12px;
-  box-shadow: 0 10px 22px rgba(190,135,177,.17);
-  cursor: pointer;
-  transition: transform .3s ease;
-}
-
-.envelope:hover { transform: translateY(-3px); }
-
-.envelope::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(145deg, transparent 49%, rgba(255,255,255,.65) 50%, transparent 52%);
-  border-radius: inherit;
-}
-
-.envelope-flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 75px;
-  background: #ffd9e9;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top;
-  transition: transform .6s ease;
-  z-index: 2;
-}
-
-.envelope.open .envelope-flap {
-  transform: rotateX(180deg);
-}
-
-.envelope-heart {
-  position: absolute;
-  z-index: 3;
-  top: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 38px;
-  transition: opacity .3s ease;
-}
-
-.envelope.open .envelope-heart { opacity: 0; }
-
-.secret-letter {
-  display: none;
-  text-align: right;
-  padding: 21px;
-  border-radius: 8px 20px;
-  border: 1px dashed var(--pink2);
-  background: color-mix(in srgb, var(--pink2) 10%, var(--card));
-  line-height: 2.2;
-  white-space: pre-wrap;
-  font-size: 14px;
-}
-
-.secret-letter.show { display: block; animation: enter .7s ease; }
-
-/* الجواب المتحرك */
-.letter-paper {
-  padding: 23px 18px;
-  border-radius: 8px 20px;
-  background: color-mix(in srgb, var(--pink2) 12%, var(--card));
-  border: 1px dashed var(--pink2);
-  line-height: 2.2;
-  min-height: 155px;
-  white-space: pre-wrap;
-  font-size: 14px;
-}
-
-.cursor {
-  display: inline-block;
-  width: 2px;
-  height: 18px;
-  vertical-align: middle;
-  background: var(--pink);
-  animation: blink .8s steps(2,start) infinite;
-}
-
-@keyframes blink { to { visibility: hidden; } }
-
-/* رسائل العائلة */
-.family-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 11px;
-}
-
-.family-card {
-  padding: 17px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  text-align: center;
-}
-
-.family-card:nth-child(1) { background: color-mix(in srgb, #ffc2dc 22%, var(--card)); }
-.family-card:nth-child(2) { background: color-mix(in srgb, #a9dcff 22%, var(--card)); }
-.family-card:nth-child(3) { background: color-mix(in srgb, #c9b8ff 22%, var(--card)); }
-
-.family-icon { font-size: 31px; }
-.family-card h3 { margin: 5px 0 9px; color: var(--pink); font-size: 15px; }
-.family-card p { font-size: 12px; line-height: 2.1; }
-
-/* الحكاية */
-.story-list { display: grid; gap: 11px; }
-
-.story-part {
-  border-radius: 17px;
-  background: color-mix(in srgb, var(--blue) 12%, var(--card));
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.story-part button {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  width: 100%;
-  text-align: right;
-  color: var(--text);
-  padding: 14px;
-  background: transparent;
-  font-weight: 800;
-}
-
-.story-part button span { font-size: 24px; }
-
-.story-content {
-  display: none;
-  padding: 0 16px 16px;
-  font-size: 13px;
-  line-height: 2.2;
-  animation: enter .4s ease;
-}
-
-.story-part.open .story-content { display: block; }
-
-/* صناديق الهدايا */
-.gifts {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 11px;
-}
-
-.gift-box {
-  padding: 17px 8px;
-  border-radius: 20px;
-  background: linear-gradient(145deg,
-    color-mix(in srgb, var(--pink2) 26%, var(--card)),
-    color-mix(in srgb, var(--blue) 26%, var(--card)));
-  border: 1px solid var(--border);
-  color: var(--text);
-  transition: transform .2s ease;
-}
-
-.gift-box:hover { transform: translateY(-3px); }
-.gift-icon { font-size: 43px; display: block; }
-.gift-box strong { display: block; margin-top: 7px; font-size: 12px; color: var(--pink); }
-
-.gift-message {
-  display: none;
-  margin-top: 14px;
-  border-radius: 18px;
-  background: color-mix(in srgb, var(--pink2) 12%, var(--card));
-  padding: 18px;
-  line-height: 2.2;
-  text-align: center;
-  font-size: 14px;
-}
-
-.gift-message.show { display: block; animation: enter .5s ease; }
-
-/* الأغنية */
-.song-card {
-  padding: 17px;
-  border-radius: 20px;
-  background: linear-gradient(125deg,
-    color-mix(in srgb, var(--pink2) 20%, var(--card)),
-    color-mix(in srgb, var(--blue) 20%, var(--card)));
-}
-
-.song-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.song-icon {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  background: var(--card);
-  border-radius: 15px;
-  font-size: 24px;
-}
-
-.song-head h3 { color: var(--pink); font-size: 15px; }
-.song-head p { color: var(--muted); font-size: 12px; margin-top: 3px; }
-audio { display: block; width: 100%; margin-top: 14px; height: 42px; }
-.music-message { text-align: center; color: var(--muted); font-size: 12px; line-height: 1.9; margin-top: 9px; }
-
-.heart-float {
-  position: fixed;
-  bottom: -35px;
-  z-index: 0;
-  pointer-events: none;
-  animation: rise linear forwards;
-  opacity: 0;
+@keyframes twinkle {
+  0%,100% { opacity:.25; transform:scale(.8); }
+  50% { opacity:1; transform:scale(1.2); }
 }
 
 @keyframes rise {
-  0% { transform: translateY(0); opacity: 0; }
-  15% { opacity: .45; }
-  85% { opacity: .35; }
-  100% { transform: translateY(-108vh) rotate(18deg); opacity: 0; }
+  from { opacity:0; transform:translateY(24px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-@media (max-width: 650px) {
-  .page { padding: 13px 11px 35px; }
-  .hero { border-radius: 26px; padding: 29px 13px; }
-  .section { padding: 20px 14px; }
-  .family-grid { grid-template-columns: 1fr; }
-  .family-card { padding: 15px; }
-  .family-card p { font-size: 13px; }
-  .castle-rooms { gap: 7px; }
-  .castle-room { padding: 12px 5px; }
-  .castle-room strong { font-size: 11px; }
-  .gifts { gap: 7px; }
-  .gift-box { padding: 14px 5px; }
-  .gift-icon { font-size: 35px; }
+@keyframes glow {
+  0%,100% { filter:drop-shadow(0 0 7px rgba(247,215,138,.15)); }
+  50% { filter:drop-shadow(0 0 20px rgba(247,215,138,.6)); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: .01ms !important;
+@keyframes float {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-9px); }
+}
+
+@keyframes gateOpen {
+  from { transform:perspective(700px) rotateY(0); }
+  to { transform:perspective(700px) rotateY(-100deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position:0% 50%; }
+  100% { background-position:200% 50%; }
+}
+
+@keyframes heartFloat {
+  0% { transform:translateY(0) rotate(0); opacity:0; }
+  15% { opacity:.8; }
+  100% { transform:translateY(-180px) rotate(25deg); opacity:0; }
+}
+
+#intro {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  text-align:center;
+  background:
+    radial-gradient(ellipse at center,rgba(87,67,145,.28),transparent 55%),
+    linear-gradient(180deg,#07091a,#11152f 70%,#080a1b);
+  transition:opacity 1.2s ease, visibility 1.2s ease;
+  overflow:hidden;
+}
+
+#intro.leaving {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.intro-moon {
+  position:absolute;
+  top:8%;
+  left:12%;
+  font-size:clamp(35px,8vw,66px);
+  color:var(--gold);
+  filter:drop-shadow(0 0 24px rgba(247,215,138,.65));
+  animation:float 5s ease-in-out infinite;
+}
+
+.intro-kicker {
+  color:var(--gold);
+  letter-spacing:2px;
+  font-size:13px;
+  margin-bottom:14px;
+  animation:rise 1s both;
+}
+
+.intro-title {
+  margin:0;
+  font-family:'Amiri',serif;
+  font-size:clamp(35px,8vw,66px);
+  line-height:1.45;
+  color:var(--pink2);
+  text-shadow:0 0 28px rgba(255,158,210,.3);
+  animation:rise 1.3s .15s both;
+}
+
+.intro-subtitle {
+  max-width:450px;
+  color:#d8d7ef;
+  font-size:15px;
+  line-height:2;
+  margin:12px 0 25px;
+  animation:rise 1.3s .35s both;
+}
+
+.palace-scene {
+  position:relative;
+  width:min(440px,90vw);
+  height:235px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  margin:4px 0 22px;
+  animation:rise 1.5s .4s both;
+}
+
+.palace-glow {
+  position:absolute;
+  bottom:0;
+  width:90%;
+  height:45%;
+  background:radial-gradient(ellipse,rgba(247,215,138,.22),transparent 70%);
+}
+
+.palace {
+  position:relative;
+  width:235px;
+  height:185px;
+  border:2px solid rgba(247,215,138,.72);
+  border-bottom:0;
+  border-radius:115px 115px 0 0;
+  background:linear-gradient(180deg,rgba(51,53,103,.92),rgba(17,22,51,.98));
+  box-shadow:0 0 45px rgba(247,215,138,.13),inset 0 0 35px rgba(255,158,210,.07);
+}
+
+.palace:before,.palace:after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  width:58px;
+  height:130px;
+  border:2px solid rgba(247,215,138,.65);
+  background:linear-gradient(180deg,#25294f,#12162f);
+}
+
+.palace:before { right:-49px; border-radius:40px 40px 0 0; }
+.palace:after { left:-49px; border-radius:40px 40px 0 0; }
+
+.tower-top {
+  position:absolute;
+  top:-28px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;height:0;
+  border-left:37px solid transparent;
+  border-right:37px solid transparent;
+  border-bottom:33px solid var(--gold);
+  filter:drop-shadow(0 0 9px rgba(247,215,138,.4));
+}
+
+.palace-window {
+  position:absolute;
+  width:22px;
+  height:37px;
+  border:1px solid var(--gold);
+  border-radius:14px 14px 0 0;
+  background:#ffdf9a;
+  box-shadow:0 0 19px rgba(247,215,138,.65);
+  top:44px;
+}
+
+.palace-window.one { left:48px; }
+.palace-window.two { right:48px; }
+
+.palace-door {
+  position:absolute;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:62px;
+  height:99px;
+  border:2px solid var(--gold);
+  border-bottom:0;
+  border-radius:34px 34px 0 0;
+  background:#080b20;
+  overflow:hidden;
+  box-shadow:0 0 20px rgba(247,215,138,.16);
+}
+
+.door-light {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,223,154,.45),transparent);
+  opacity:0;
+  transition:opacity 1s;
+}
+
+.palace-scene.opening .door-light { opacity:1; }
+
+.gate-button {
+  position:relative;
+  border:1px solid rgba(247,215,138,.8);
+  border-radius:50px;
+  padding:14px 29px;
+  color:#19132d;
+  font-weight:800;
+  cursor:pointer;
+  background:linear-gradient(110deg,#f6d68b,#fff0c8,#f5c8e6,#f6d68b);
+  background-size:200% auto;
+  box-shadow:0 0 30px rgba(247,215,138,.17);
+  transition:transform .25s,box-shadow .25s;
+  animation:shimmer 5s linear infinite;
+}
+
+.gate-button:hover {
+  transform:translateY(-3px);
+  box-shadow:0 0 35px rgba(247,215,138,.35);
+}
+
+.intro-note {
+  color:#aeb1d8;
+  font-size:12px;
+  margin-top:14px;
+}
+
+main {
+  position:relative;
+  z-index:1;
+  width:min(900px,100%);
+  margin:auto;
+  padding:25px 16px 60px;
+  animation:rise 1s both;
+}
+
+header { text-align:center; padding:25px 8px 15px; }
+
+.crown {
+  display:inline-block;
+  font-size:46px;
+  animation:float 4s ease-in-out infinite;
+  filter:drop-shadow(0 0 15px rgba(247,215,138,.3));
+}
+
+h1,h2,h3 { line-height:1.6; }
+
+h1 {
+  font-family:'Amiri',serif;
+  font-size:clamp(32px,7vw,52px);
+  margin:4px 0;
+  color:var(--pink2);
+}
+
+.subtitle {
+  color:var(--muted);
+  line-height:2;
+  margin:5px auto;
+  max-width:620px;
+}
+
+.gold-line {
+  width:100px;
+  height:2px;
+  margin:20px auto;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+.panel {
+  position:relative;
+  background:linear-gradient(145deg,rgba(27,32,67,.94),rgba(17,21,48,.96));
+  border:1px solid var(--border);
+  border-radius:23px;
+  padding:23px;
+  margin:20px 0;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.panel:before {
+  content:"";
+  position:absolute;
+  top:0;
+  right:10%;
+  width:80%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,215,138,.5),transparent);
+}
+
+.section-title {
+  color:var(--gold);
+  font-size:22px;
+  margin:0 0 12px;
+}
+
+.center { text-align:center; }
+
+.muted { color:var(--muted); line-height:2; }
+
+.btn {
+  border:1px solid rgba(247,215,138,.38);
+  background:linear-gradient(135deg,#28264e,#1a2245);
+  color:var(--text);
+  border-radius:30px;
+  padding:10px 19px;
+  cursor:pointer;
+  transition:transform .2s,border-color .2s;
+  margin:5px;
+}
+
+.btn:hover {
+  transform:translateY(-2px);
+  border-color:var(--gold);
+}
+
+.btn.gold {
+  background:linear-gradient(110deg,#f7d78a,#ffe9b6);
+  color:#21182d;
+  font-weight:800;
+}
+
+.countdown {
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:18px 0;
+}
+
+.count-box {
+  min-width:78px;
+  padding:13px 10px;
+  border:1px solid rgba(255,158,210,.2);
+  border-radius:16px;
+  background:rgba(8,11,30,.55);
+}
+
+.count-number {
+  display:block;
+  color:var(--pink);
+  font-size:25px;
+  font-weight:800;
+}
+
+.count-label { color:var(--muted); font-size:12px; }
+
+.castle-grid,.gift-grid,.message-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:13px;
+  margin-top:18px;
+}
+
+.castle-room,.gift,.message-card {
+  border:1px solid rgba(169,200,255,.19);
+  background:linear-gradient(145deg,rgba(36,42,83,.9),rgba(17,21,47,.95));
+  border-radius:19px;
+  padding:18px 13px;
+  text-align:center;
+}
+
+.castle-room {
+  cursor:pointer;
+  transition:transform .25s,border-color .25s;
+}
+
+.castle-room:hover {
+  transform:translateY(-4px);
+  border-color:var(--pink);
+}
+
+.room-icon { font-size:35px; display:block; margin-bottom:8px; }
+.castle-room strong,.gift strong { color:var(--pink2); display:block; }
+.castle-room small { color:var(--muted); line-height:1.8; }
+
+.room-content {
+  margin-top:15px;
+  padding:17px;
+  border-radius:15px;
+  background:rgba(7,10,28,.65);
+  border:1px dashed rgba(247,215,138,.3);
+  line-height:2.1;
+  animation:rise .4s both;
+}
+
+.letter {
+  min-height:120px;
+  line-height:2.2;
+  white-space:pre-wrap;
+  color:#f9e7f5;
+  font-size:16px;
+}
+
+.letter-cursor {
+  display:inline-block;
+  color:var(--gold);
+  animation:twinkle 1s infinite;
+}
+
+.envelope {
+  width:100px;
+  height:70px;
+  margin:12px auto 20px;
+  position:relative;
+  cursor:pointer;
+  background:#e9a8d0;
+  border-radius:7px;
+  box-shadow:0 0 22px rgba(255,158,210,.15);
+  border:0;
+  display:block;
+}
+
+.envelope:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:#f8c8e4;
+  clip-path:polygon(0 0,50% 57%,100% 0);
+}
+
+.envelope:after {
+  content:"💌";
+  position:absolute;
+  font-size:27px;
+  top:24px;
+  left:36px;
+}
+
+.gift {
+  cursor:pointer;
+  transition:transform .25s,border-color .25s;
+}
+
+.gift:hover { transform:translateY(-4px); border-color:var(--gold); }
+
+.gift-icon {
+  display:block;
+  font-size:45px;
+  margin:3px 0 12px;
+  animation:float 4s ease-in-out infinite;
+}
+
+.gift p { color:var(--muted); font-size:13px; line-height:1.8; }
+
+.story-chapter {
+  border-bottom:1px solid rgba(247,215,138,.13);
+  padding:13px 0;
+}
+
+.story-chapter:last-child { border-bottom:0; }
+
+.story-chapter summary {
+  cursor:pointer;
+  color:var(--pink2);
+  font-weight:700;
+  line-height:2;
+}
+
+.story-chapter p { color:var(--muted); line-height:2.1; }
+
+.key-row {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:18px 0;
+}
+
+.key {
+  font-size:30px;
+  opacity:.3;
+  filter:grayscale(1);
+  transition:all .3s;
+}
+
+.key.found {
+  opacity:1;
+  filter:none;
+  animation:glow 2s infinite;
+}
+
+.well {
+  width:150px;
+  height:95px;
+  margin:20px auto;
+  position:relative;
+  border-radius:12px 12px 40px 40px;
+  border:3px solid #8f9bd2;
+  background:linear-gradient(180deg,#242b55,#111731);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:36px;
+  box-shadow:0 0 22px rgba(169,200,255,.12);
+}
+
+.well:before {
+  content:"";
+  position:absolute;
+  top:-10px;
+  left:-9px;
+  right:-9px;
+  height:15px;
+  border-radius:12px;
+  background:#b7a4e5;
+}
+
+#wishText { min-height:52px; }
+
+#toast {
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+  opacity:0;
+  pointer-events:none;
+  z-index:150;
+  padding:12px 20px;
+  border-radius:30px;
+  background:#24264d;
+  border:1px solid var(--gold);
+  color:#fff5ff;
+  width:max-content;
+  max-width:90%;
+  text-align:center;
+  transition:all .3s;
+  box-shadow:var(--shadow);
+}
+
+#toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+.heart {
+  position:fixed;
+  z-index:90;
+  pointer-events:none;
+  bottom:0;
+  animation:heartFloat 3.8s ease-out forwards;
+}
+
+#birthdayBurst {
+  position:fixed;
+  inset:0;
+  z-index:80;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.confetti {
+  position:absolute;
+  top:-20px;
+  animation:fall 3.5s linear forwards;
+  font-size:20px;
+}
+
+@keyframes fall {
+  to { transform:translateY(110vh) rotate(500deg); opacity:.15; }
+}
+
+footer { display:none; }
+
+@media(max-width:500px) {
+  main { padding:15px 12px 45px; }
+  .panel { padding:18px 15px; border-radius:19px; }
+  .palace-scene { transform:scale(.9); margin:0 0 5px; }
+  .count-box { min-width:67px; }
+  .intro-subtitle { font-size:14px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
   }
 }
 </style>
 </head>
 
 <body>
-<div class="page">
+<div id="stars" aria-hidden="true"></div>
+<div id="birthdayBurst" aria-hidden="true"></div>
+<div id="toast" role="status" aria-live="polite"></div>
 
-  <div class="topbar">
-    <div class="brand">♡ مملكة ليلي الصغيرة ♡</div>
-    <button class="pill-button" id="nightToggle" type="button">🌙 وضع الليل</button>
+<!-- لا يوجد مشغل صوت ظاهر -->
+<audio id="royalSong" src="kafa.mp3" preload="auto" loop></audio>
+
+<!-- بوابة الدخول الجديدة -->
+<section id="intro" aria-label="بوابة مملكة الأميرة ليلي">
+  <div class="intro-moon">☾</div>
+  <div class="intro-kicker">✦ حكاية صغيرة في ليلة مليانة نجوم ✦</div>
+  <h1 class="intro-title">مملكة الأميرة<br>ليلي محمد</h1>
+  <p class="intro-subtitle">
+    في مكان بعيد بين النجوم، فيه مملكة صغيرة مستنية أجمل أميرة تنوّرها بضحكتها… 👑
+  </p>
+
+  <div class="palace-scene" id="palaceScene">
+    <div class="palace-glow"></div>
+    <div class="palace">
+      <div class="tower-top"></div>
+      <div class="palace-window one"></div>
+      <div class="palace-window two"></div>
+      <div class="palace-door"><div class="door-light"></div></div>
+    </div>
   </div>
 
-  <header class="hero">
+  <button class="gate-button" id="enterButton" type="button">
+    افتحي بوابة المملكة ✨
+  </button>
+  <div class="intro-note">المملكة دي معمولة مخصوص للأميرة ليلي 💗</div>
+</section>
+
+<main id="kingdom" class="hidden">
+  <header>
     <div class="crown">👑</div>
-    <h1>مملكة الأميرة<br>ليلي محمد</h1>
-    <p>حكاية صغيرة مليانة دعوات وقلوب وفرحة،<br>اتعملت مخصوص لأحلى أميرة في الدنيا. 🩷</p>
-    <div class="hero-tag">أميرتنا الحلوة 🌸</div>
+    <h1>مملكة الأميرة ليلي محمد</h1>
+    <div class="gold-line"></div>
+    <p class="subtitle">
+      يا أجمل هدية، ويا أحلى حكاية بدأت في حياتنا…<br>
+      المملكة دي كلها ليكي يا ليلي، وكل ركن فيها فيه حب ودعوة حلوة ليكي. 🌙
+    </p>
   </header>
 
-  <section class="section">
-    <h2 class="section-title">🩷 أهلًا بأميرة المملكة 🩵</h2>
-    <div class="welcome">
-      يا <span class="name">ليلي محمد</span> يا أحلى هدية،
-      ويا ضحكة صغيرة بتخلّي الدنيا أحلى.
-      <br>
-      هنا ليكي مملكة كلها كلام حلو، ودعوات من القلب،
-      وحاجات صغيرة تفكّرك قد إيه وجودك جميل.
-      <br>
-      ربنا يحفظك ويكتبلك أيام مليانة فرحة وراحة بال. 🎀
+  <section class="panel center">
+    <h2 class="section-title">🌙 حكاية يوم مميز</h2>
+    <p class="muted">يوم ما جه النور الصغير اللي خلّى الدنيا أحلى</p>
+    <h3 style="color:var(--pink2);font-size:25px;margin:5px 0">
+      12 أكتوبر 2026
+    </h3>
+    <div id="birthdayStatus" class="muted">لحظة بنجهّز فيها مفاجأة للأميرة…</div>
+    <div class="countdown" id="countdown">
+      <div class="count-box"><span class="count-number" id="days">--</span><span class="count-label">يوم</span></div>
+      <div class="count-box"><span class="count-number" id="hours">--</span><span class="count-label">ساعة</span></div>
+      <div class="count-box"><span class="count-number" id="minutes">--</span><span class="count-label">دقيقة</span></div>
+      <div class="count-box"><span class="count-number" id="seconds">--</span><span class="count-label">ثانية</span></div>
     </div>
+    <button class="btn gold" id="birthdayButton" type="button">احتفلي يا أميرة 🎂</button>
   </section>
 
-  <section class="section">
-    <h2 class="section-title">🎂 يوم ميلاد الأميرة</h2>
-    <div class="birth-card">
-      <div class="birth-icon">🎀</div>
-      <p>اليوم اللي بدأت فيه حكاية أميرتنا</p>
-      <div class="birth-date">12 أكتوبر 2026</div>
-      <p>يا رب تكون كل سنينك خير وفرحة وستر وبركة. 🩷</p>
-      <p id="birthStatus" style="margin-top:8px;color:var(--pink);font-weight:800"></p>
-    </div>
-  </section>
+  <section class="panel">
+    <h2 class="section-title center">🏰 اختاري باب من أبواب القصر</h2>
+    <p class="muted center">كل باب مخبّي جواه حاجة حلوة مستنياكي.</p>
 
-  <!-- القلعة التفاعلية -->
-  <section class="section">
-    <h2 class="section-title">🏰 قلعة الأميرة التفاعلية</h2>
-    <p class="section-subtitle">اختاري باب من أبواب القلعة، وكل باب مخبّي رسالة ليكي.</p>
-
-    <div class="castle">
-      <div class="castle-art">🏰✨</div>
-      <div>أهلًا بيكي في قلعتك يا ليلي</div>
-
-      <div class="castle-rooms">
-        <button class="castle-room" data-room="garden" type="button">
-          <span class="room-icon">🌷</span>
-          <strong>حديقة الفرح</strong>
-          <small>افتحي الباب</small>
-        </button>
-
-        <button class="castle-room" data-room="stars" type="button">
-          <span class="room-icon">🌟</span>
-          <strong>غرفة الأمنيات</strong>
-          <small>افتحي الباب</small>
-        </button>
-
-        <button class="castle-room" data-room="clouds" type="button">
-          <span class="room-icon">☁️</span>
-          <strong>سحابة الدعوات</strong>
-          <small>افتحي الباب</small>
-        </button>
-      </div>
-
-      <div class="castle-output" id="castleOutput" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <!-- الجواب المتحرك -->
-  <section class="section">
-    <h2 class="section-title">💌 جواب صغير للأميرة</h2>
-    <p class="section-subtitle">كلام من القلب، بيظهر قدامك حرف حرف.</p>
-    <div class="letter-paper">
-      <span id="letterText"></span><span class="cursor" id="letterCursor"></span>
-    </div>
-    <div class="button-row">
-      <button class="soft-button" id="replayLetter" type="button">💌 اقري الجواب تاني</button>
-    </div>
-  </section>
-
-  <!-- الجواب السري -->
-  <section class="section">
-    <h2 class="section-title">✉️ جواب سري ليلي</h2>
-    <p class="section-subtitle">في جواب مستخبي جوه الظرف… اضغطي عليه علشان تفتحيه.</p>
-
-    <div class="envelope-area">
-      <button class="envelope" id="envelope" type="button" aria-label="افتحي الجواب السري" aria-expanded="false">
-        <span class="envelope-flap"></span>
-        <span class="envelope-heart">💗</span>
+    <div class="castle-grid">
+      <button class="castle-room" type="button" data-room="letter">
+        <span class="room-icon">💌</span>
+        <strong>غرفة الرسالة</strong>
+        <small>كلام طالع من القلب</small>
+      </button>
+      <button class="castle-room" type="button" data-room="family">
+        <span class="room-icon">💗</span>
+        <strong>غرفة العيلة</strong>
+        <small>رسائل مخصوص ليكي</small>
+      </button>
+      <button class="castle-room" type="button" data-room="story">
+        <span class="room-icon">📖</span>
+        <strong>مكتبة الحكايات</strong>
+        <small>حكاية الأميرة الصغيرة</small>
+      </button>
+      <button class="castle-room" type="button" data-room="gifts">
+        <span class="room-icon">🎁</span>
+        <strong>غرفة الهدايا</strong>
+        <small>تلات مفاجآت</small>
       </button>
     </div>
 
-    <div class="secret-letter" id="secretLetter">
-      <div id="secretText"></div>
+    <div id="roomContent" class="room-content hidden" aria-live="polite">
+      اختاري باب من أبواب القصر عشان نفتحلك المفاجأة.
     </div>
   </section>
 
-  <!-- رسائل العائلة -->
-  <section class="section">
-    <h2 class="section-title">👨‍👩‍👧 رسايل من القلب</h2>
-    <div class="family-grid">
-      <article class="family-card">
-        <div class="family-icon">🌷</div>
-        <h3>ماما</h3>
-        <p>
-          يا حتة من قلبي، يا أجمل حاجة حصلتلي،
-          ربنا يحفظك من كل شر ويخلّي ضحكتك منوّرة حياتي.
-          هفضل أدعيلك في كل وقت، وأتمنى أشوفك أسعد أميرة في الدنيا.
-          بحبك يا روح ماما. 🩷
-        </p>
-      </article>
+  <section class="panel" id="letterSection">
+    <h2 class="section-title center">💌 جواب صغير للأميرة ليلي</h2>
+    <p class="muted center">في جواب مستخبي مستنيكي تفتحيه…</p>
+    <button class="envelope" id="openLetter" aria-label="افتحي الرسالة" type="button"></button>
+    <div class="letter" id="letterText" aria-live="polite"></div>
+    <div class="center"><span class="letter-cursor" id="cursor"></span></div>
+  </section>
 
-      <article class="family-card">
-        <div class="family-icon">🧸</div>
-        <h3>بابا</h3>
-        <p>
-          يا أميرتي الصغيرة، يا فرحة عمري،
-          ربنا يبارك فيكي ويحفظك ويكتبلك كل خير.
-          هفضل أتمنى أشوفك قوية ومبسوطة وتحققي كل اللي بتحلمي بيه.
-          إنتي دايمًا غالية يا ليلي. 🩵
-        </p>
+  <section class="panel" id="familySection">
+    <h2 class="section-title center">💗 كلام من ناس بتحبك</h2>
+    <p class="muted center">كل كلمة هنا دعوة حلوة ليكي يا ليلي.</p>
+    <div class="message-grid">
+      <article class="message-card">
+        <div style="font-size:35px">🤱</div>
+        <h3 style="color:var(--pink2)">من ماما</h3>
+        <p class="muted">يا روح ماما ونور عيني، يا أجمل نعمة ربنا رزقني بيها. ربنا يحفظك ليا، ويخلّي أيامك كلها فرح وراحة، وأشوفك دايمًا بخير وناجحة ومبسوطة. ضحكتك عندي بالدنيا كلها يا قلب ماما. 💗</p>
       </article>
-
-      <article class="family-card">
-        <div class="family-icon">🎀</div>
-        <h3>خالتو بوبا</h3>
-        <p>
-          يا ليلي يا أحلى وأجمل أميرة في الدنيا،
-          يا حتة سكر دخلت حياتنا ونورتها بوجودك. ❤️
-          ربنا يحفظك ويبارك في عمرك، وأشوفك دايمًا مبسوطة
-          وضحكتك مالية الدنيا، وتكبري وتحققي كل أحلامك
-          يا روح خالتو بوبا. 🥹💗
-          هتفضلي حبيبتي الصغيرة ودلوعتي، وليكي في قلبي مكان
-          محدش يقدر ياخده. بحبك يا ليلي يا قمر خالتو بوبا. 👑🌸
-        </p>
+      <article class="message-card">
+        <div style="font-size:35px">🧔</div>
+        <h3 style="color:var(--pink2)">من بابا</h3>
+        <p class="muted">يا أميرة بابا وأجمل هدية في حياتي، ربنا يحفظك ويبارك في عمرك، ويكتبلك الخير في كل خطوة. أتمنى أشوفك دايمًا قوية ومبسوطة، والدنيا تفتحلك أبوابها وتحققي كل اللي تتمنيه. هتفضلي دايمًا نور قلبي يا ليلي. 👑</p>
+      </article>
+      <article class="message-card">
+        <div style="font-size:35px">🌸</div>
+        <h3 style="color:var(--pink2)">من خالتو بوبا</h3>
+        <p class="muted">يا ليلي يا أحلى وأجمل أميرة في الدنيا، يا حتة سكر دخلت حياتنا ونورتها بوجودك. ❤️ ربنا يحفظك ويبارك في عمرك، وأشوفك دايمًا مبسوطة وضحكتك مالية الدنيا، وتكبري وتحققي كل أحلامك يا روح خالتو بوبا. 🥹💗 هتفضلي حبيبتي الصغيرة ودلوعتي، وليكي في قلبي مكان محدش يقدر ياخده. بحبك يا ليلي يا قمر خالتو بوبا. 👑🌸</p>
       </article>
     </div>
   </section>
 
-  <!-- حكاية ليلي -->
-  <section class="section">
-    <h2 class="section-title">📖 حكاية ليلي الجميلة</h2>
-    <p class="section-subtitle">كل عنوان هنا فصل صغير من حكاية أميرتنا.</p>
+  <section class="panel" id="storySection">
+    <h2 class="section-title center">📖 حكاية الأميرة ليلي</h2>
+    <p class="muted center">حكاية صغيرة بتكبر معاكي يوم ورا يوم.</p>
 
-    <div class="story-list">
-      <article class="story-part">
-        <button type="button" aria-expanded="false">
-          <span>🌸</span> الفصل الأول: بداية الحكاية
-        </button>
-        <div class="story-content">
-          في يوم جميل من أيام أكتوبر، بدأت حكاية اسمها ليلي محمد.
-          حكاية لسه قدامها صفحات كتير، وأحلام كبيرة، وأيام تستاهل
-          تتعاش بحب وطمأنينة. ومن يومها بقى اسم ليلي جزء من حكاية
-          جميلة بيتمنالها كل اللي بيحبوها كل خير. 🩷
-        </div>
-      </article>
+    <details class="story-chapter">
+      <summary>الفصل الأول: نجمة نزلت من السما ✨</summary>
+      <p>كان يا ما كان، في ليلة هادية مليانة نجوم، ظهرت نجمة صغيرة اسمها ليلي. النجمة دي كانت مختلفة عن كل النجوم؛ نورها دافي، ووجودها يخلّي أي مكان حواليها أحلى. ومن يومها، بقى ليها مكان مخصوص في قلوب كل اللي عرفوها.</p>
+    </details>
 
-      <article class="story-part">
-        <button type="button" aria-expanded="false">
-          <span>🦋</span> الفصل الثاني: أميرة بتكبر
-        </button>
-        <div class="story-content">
-          يوم ورا يوم، هتكبر الأميرة وتتعلم حاجات جديدة،
-          وتكتشف إن الدنيا فيها ألوان وأماكن وأحلام كتير.
-          والمهم تفضل طيبة، وتعرف إن الغلط مش نهاية الطريق،
-          وإن كل يوم فرصة جديدة تتعلم وتفرح وتنجح. 🩵
-        </div>
-      </article>
+    <details class="story-chapter">
+      <summary>الفصل التاني: مفتاح السعادة 🗝️</summary>
+      <p>كبرت الأميرة الصغيرة وهي بتكتشف إن أجمل كنوز الدنيا مش دهب ولا فضة؛ أجمل كنز هو قلب طيب، وضحكة صافية، وناس بتحبها بصدق. وكل يوم كانت بتتعلم إن الحنية قوة، وإن الكلمة الحلوة ممكن تنوّر يوم حد كامل.</p>
+    </details>
 
-      <article class="story-part">
-        <button type="button" aria-expanded="false">
-          <span>⭐</span> الفصل الثالث: أحلام كبيرة
-        </button>
-        <div class="story-content">
-          يا رب كل حلم حلو ييجي في بال ليلي يكون ليه طريق،
-          وكل خطوة تخطيها تقرّبها من الخير.
-          يا رب يرزقها قلب مطمّن، وصحبة صالحة، ونجاح يفرّح قلبها،
-          ويجعل أيامها مليانة ستر ورضا وبركة. 🤍
-        </div>
-      </article>
-    </div>
+    <details class="story-chapter">
+      <summary>الفصل التالت: أحلام أكبر من المملكة 🌙</summary>
+      <p>وكان للأميرة أحلام كتير، وكل حلم كان نجمة بتنور في سماها. وكانت عارفة إن الطريق ممكن يطول، بس طول ما عندها قلب شجاع وأمل جميل، تقدر تتعلم وتكبر وتوصل لحاجات كتير. والمملكة كلها هتفضل تشجعها وتفرح بكل خطوة تعملها.</p>
+    </details>
+
+    <details class="story-chapter">
+      <summary>الفصل الرابع: أجمل حكاية لسه جاية 🌸</summary>
+      <p>أما أجمل فصل في الحكاية، فهو لسه ما اتكتبش. هيتكتب بالضحكات، والذكريات، والأيام الحلوة، والحاجات الجديدة اللي الأميرة هتكتشفها. وكل يوم جديد هو صفحة بيضا، مستنية ليلي تملأها بحكايتها الخاصة.</p>
+    </details>
   </section>
 
-  <!-- ثلاثة صناديق مفاجآت -->
-  <section class="section">
-    <h2 class="section-title">🎁 تلات هدايا مستخبيين</h2>
-    <p class="section-subtitle">كل صندوق فيه مفاجأة مختلفة… افتحيهم واحد واحد.</p>
-
-    <div class="gifts">
-      <button class="gift-box" type="button" data-gift="0">
+  <section class="panel" id="giftsSection">
+    <h2 class="section-title center">🎁 تلات هدايا مستخبيين</h2>
+    <p class="muted center">اختاري كل صندوق وافتحي اللي جواه.</p>
+    <div class="gift-grid">
+      <button class="gift" type="button" data-gift="0">
         <span class="gift-icon">🎁</span>
-        <strong>هدية القلب</strong>
+        <strong>الهدية الأولى</strong>
+        <p>افتحي وشوفي المفاجأة</p>
       </button>
-      <button class="gift-box" type="button" data-gift="1">
+      <button class="gift" type="button" data-gift="1">
         <span class="gift-icon">🎀</span>
-        <strong>هدية الأمنيات</strong>
+        <strong>الهدية التانية</strong>
+        <p>في كلام حلو مستخبي</p>
       </button>
-      <button class="gift-box" type="button" data-gift="2">
-        <span class="gift-icon">🧸</span>
-        <strong>هدية الضحكة</strong>
+      <button class="gift" type="button" data-gift="2">
+        <span class="gift-icon">💎</span>
+        <strong>الهدية التالتة</strong>
+        <p>آخر هدية في المملكة</p>
       </button>
     </div>
-
-    <div class="gift-message" id="giftMessage" aria-live="polite"></div>
+    <div id="giftResult" class="room-content hidden" aria-live="polite"></div>
   </section>
 
-  <!-- الأغنية -->
-  <section class="section">
-    <h2 class="section-title">🎵 أغنية صغيرة للأميرة</h2>
-    <div class="song-card">
-      <div class="song-head">
-        <div class="song-icon">🎶</div>
-        <div>
-          <h3>أغنيتنا الحلوة</h3>
-          <p>لحظات هادية مخصوص لليلي 🩷</p>
-        </div>
-      </div>
+  <section class="panel center">
+    <h2 class="section-title">⛲ بئر الأمنيات</h2>
+    <p class="muted">غمّضي عينيكي لحظة، واتمني أمنية حلوة للأميرة الصغيرة.</p>
+    <div class="well">💧✨</div>
+    <button class="btn gold" id="wishButton" type="button">اطلبي أمنية 🌟</button>
+    <p id="wishText" class="muted" aria-live="polite"></p>
+  </section>
 
-      <audio id="song" src="kafa.mp3" preload="auto" loop controls>
-        المتصفح لا يدعم مشغل الصوت.
-      </audio>
-
-      <div class="button-row">
-        <button class="soft-button" id="playMusic" type="button">▶ تشغيل الأغنية</button>
-      </div>
-      <p class="music-message" id="musicMessage" aria-live="polite">
-        بنحاول نشغّل الأغنية… لو ما اشتغلتش اضغطي على زر التشغيل. 🎶
-      </p>
+  <section class="panel center">
+    <h2 class="section-title">🗝️ سر الكنز الملكي</h2>
+    <p class="muted">في 3 مفاتيح مستخبيين في المملكة. اجمعيهم عشان تفتحي الكنز!</p>
+    <div class="key-row" aria-label="المفاتيح التي تم جمعها">
+      <span class="key" id="key0">🗝️</span>
+      <span class="key" id="key1">🗝️</span>
+      <span class="key" id="key2">🗝️</span>
     </div>
+    <button class="btn" id="findKey" type="button">دوري على مفتاح 🔎</button>
+    <button class="btn gold hidden" id="openTreasure" type="button">افتحي الكنز 👑</button>
+    <div id="treasureText" class="room-content hidden" aria-live="polite"></div>
   </section>
 
-</div>
+  <div class="center" style="padding:20px 0">
+    <div style="font-size:25px;color:var(--gold)">✦ ✧ ✦</div>
+    <p style="color:var(--pink2);font-family:'Amiri',serif;font-size:23px;margin:8px 0">
+      كل المملكة بتنور بوجودك يا ليلي
+    </p>
+    <p class="muted">ربنا يحفظك ويكتبلك أيام كلها خير وفرح. 💗</p>
+  </div>
+</main>
 
 <script>
-/* وضع الليل */
-const nightToggle = document.getElementById("nightToggle");
-
-nightToggle.addEventListener("click", () => {
-  const night = document.body.classList.toggle("night");
-  nightToggle.textContent = night ? "☀️ وضع النهار" : "🌙 وضع الليل";
-  document.querySelector('meta[name="theme-color"]').content =
-    night ? "#201c3b" : "#ffe9f3";
-});
-
-/* قلوب ناعمة في الخلفية */
-const heartSymbols = ["♡", "♥", "🩷", "🩵", "✧"];
-let heartTimer;
-
-function createHeart() {
-  const heart = document.createElement("span");
-  heart.className = "heart-float";
-  heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (14 + Math.random() * 14) + "px";
-  heart.style.animationDuration = (13 + Math.random() * 8) + "s";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 22000);
+/* نجوم السماء */
+const stars = document.getElementById('stars');
+for (let i = 0; i < 75; i++) {
+  const s = document.createElement('span');
+  s.className = 'star';
+  s.textContent = Math.random() > .82 ? '✦' : '·';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.fontSize = (Math.random() * 12 + 5) + 'px';
+  s.style.animationDelay = (Math.random() * 4) + 's';
+  s.style.animationDuration = (2 + Math.random() * 4) + 's';
+  stars.appendChild(s);
 }
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  heartTimer = setInterval(createHeart, 1900);
-}
+/* تشغيل الأغنية تلقائيًا من غير مشغل ظاهر */
+const song = document.getElementById('royalSong');
+song.volume = 0.65;
 
-/* رسائل أبواب القلعة */
-const roomMessages = {
-  garden: "🌷 يا ليلي، أتمنى قلبك يفضل زي الورد: جميل، طيب، ودايمًا بيلاقي نور حتى بعد الأيام الصعبة.",
-  stars: "🌟 يا رب كل أمنية حلوة في قلبك تلاقي طريقها للنور، وكل حلم يكبر معاكي لحد ما يبقى حقيقة جميلة.",
-  clouds: "☁️ يا رب يحاوطك الستر والرضا، ويبعد عنك كل أذى، ويجعل أيامك أهدى وأحلى مما تتمني."
-};
-
-document.querySelectorAll(".castle-room").forEach(button => {
-  button.addEventListener("click", () => {
-    const output = document.getElementById("castleOutput");
-    output.textContent = roomMessages[button.dataset.room];
-    output.classList.remove("show");
-    requestAnimationFrame(() => output.classList.add("show"));
-  });
-});
-
-/* الجواب المتحرك */
-const letterText =
-`يا ليلي الجميلة،
-
-يمكن إنتي لسه صغيرة على الكلام ده،
-بس وجودك لوحده حكاية حلوة تستاهل تتحكي.
-
-نتمنالك ضحكة متفارقش وشك،
-وقلب مطمّن، وأيام مليانة لعب وفرحة،
-وناس بتحبك وتدعي لك من قلبها.
-
-كل يوم تكبري فيه يبقى بداية لحاجة جميلة،
-وكل حلم تحلميه ربنا يقرّبك منه،
-ويحفظ قلبك الصغير ويبعد عنك كل زعل.
-
-خليكي دايمًا الأميرة اللي بتنور الدنيا بابتسامتها،
-وافتكري إن ليكي ناس بتحبك وبتتمنالك كل خير. 🌷`;
-
-let letterInterval;
-
-function typeLetter() {
-  clearInterval(letterInterval);
-  const output = document.getElementById("letterText");
-  const cursor = document.getElementById("letterCursor");
-  output.textContent = "";
-  cursor.style.display = "inline-block";
-  let i = 0;
-
-  letterInterval = setInterval(() => {
-    output.textContent += letterText.charAt(i);
-    i++;
-    if (i >= letterText.length) {
-      clearInterval(letterInterval);
-      cursor.style.display = "none";
-    }
-  }, 42);
-}
-
-document.getElementById("replayLetter").addEventListener("click", typeLetter);
-
-/* الظرف السري */
-const envelope = document.getElementById("envelope");
-const secretLetter = document.getElementById("secretLetter");
-
-const secretMessage =
-`يا ليلي يا قمر،
-
-في حاجات جميلة مش محتاجة كلام كتير،
-زي ضحكتك اللي بتفرّح اللي حواليكي،
-وزي الدعوات اللي بتطلعلك من القلب من غير ما تسمعيها.
-
-يا رب تفضلي دايمًا محاطة بالحب والخير،
-وكل ما تكبري تكتشفي إن في الدنيا حاجات جميلة
-كتير مستنياكي.
-
-خلي قلبك مطمّن، وابتسامتك موجودة،
-وافتكري دايمًا إنك تستاهلي كل خير. 🩷👑`;
-
-envelope.addEventListener("click", () => {
-  const open = envelope.classList.toggle("open");
-  envelope.setAttribute("aria-expanded", String(open));
-  secretLetter.classList.toggle("show", open);
-
-  if (open) {
-    document.getElementById("secretText").textContent = secretMessage;
-    secretLetter.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }
-});
-
-/* فصول الحكاية */
-document.querySelectorAll(".story-part > button").forEach(button => {
-  button.addEventListener("click", () => {
-    const part = button.closest(".story-part");
-    const open = part.classList.toggle("open");
-    button.setAttribute("aria-expanded", String(open));
-  });
-});
-
-/* صناديق المفاجآت */
-const giftMessages = [
-  "💗 هدية القلب: شمس الدنيا تطلع لما تطلع ضحكة منك يا ليلي. خلي ضحكتك دايمًا منوّرة أيامك وأيام اللي بيحبوكي.",
-  "🌟 هدية الأمنيات: يا رب يحققلك كل حلم جميل، ويكتبلك مستقبل مليان نجاح وراحة بال، ويفتحلك أبواب الخير من حيث لا تحتسبي.",
-  "🧸 هدية الضحكة: مهمة الأميرة النهارده: تبتسم ابتسامة كبيرة، وتضحك من قلبها، وتنشر شوية فرحة في المملكة كلها! 👑🩷"
-];
-
-document.querySelectorAll(".gift-box").forEach(button => {
-  button.addEventListener("click", () => {
-    const message = document.getElementById("giftMessage");
-    message.textContent = giftMessages[Number(button.dataset.gift)];
-    message.classList.remove("show");
-    requestAnimationFrame(() => message.classList.add("show"));
-
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      for (let i = 0; i < 5; i++) {
-        setTimeout(createHeart, i * 180);
-      }
-    }
-  });
-});
-
-/* الأغنية: محاولة تشغيل تلقائي وزر بديل */
-const song = document.getElementById("song");
-const playMusic = document.getElementById("playMusic");
-const musicMessage = document.getElementById("musicMessage");
-
-async function startSong() {
-  try {
-    await song.play();
-    playMusic.textContent = "❚❚ إيقاف مؤقت";
-    musicMessage.textContent = "الأغنية شغالة مخصوص للأميرة ليلي 🩷";
-  } catch (error) {
-    musicMessage.textContent =
-      "لو الأغنية ما بدأتش تلقائيًا، اضغطي على تشغيل الأغنية. 🎵";
+function attemptMusic() {
+  const attempt = song.play();
+  if (attempt && typeof attempt.catch === 'function') {
+    attempt.catch(() => {
+      // بعض المتصفحات تمنع الصوت التلقائي.
+      // نعيد المحاولة عند أول تفاعل حقيقي من الزائر.
+    });
   }
 }
 
-playMusic.addEventListener("click", async () => {
-  if (song.paused) {
-    await startSong();
-  } else {
-    song.pause();
-    playMusic.textContent = "▶ تشغيل الأغنية";
-    musicMessage.textContent = "الأغنية وقفت مؤقتًا، شغّليها وقت ما تحبي. 🩷";
+attemptMusic();
+
+let musicStarted = false;
+function startMusicOnInteraction() {
+  if (musicStarted) return;
+  musicStarted = true;
+  attemptMusic();
+}
+document.addEventListener('pointerdown', startMusicOnInteraction, { once:true });
+document.addEventListener('keydown', startMusicOnInteraction, { once:true });
+
+/* إشعار صغير */
+let toastTimer;
+function toast(message) {
+  const el = document.getElementById('toast');
+  el.textContent = message;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+}
+
+/* دخلة البوابة */
+const intro = document.getElementById('intro');
+const kingdom = document.getElementById('kingdom');
+const palaceScene = document.getElementById('palaceScene');
+const enterButton = document.getElementById('enterButton');
+
+enterButton.addEventListener('click', () => {
+  startMusicOnInteraction();
+  enterButton.disabled = true;
+  enterButton.textContent = 'أهلًا بأميرة المملكة… ✨';
+  palaceScene.classList.add('opening');
+
+  for (let i = 0; i < 12; i++) {
+    setTimeout(makeHeart, i * 90);
   }
+
+  setTimeout(() => {
+    intro.classList.add('leaving');
+    kingdom.classList.remove('hidden');
+    window.scrollTo({ top:0, behavior:'smooth' });
+    setTimeout(() => intro.remove(), 1400);
+    toast('أهلًا بالأميرة ليلي في مملكتها 👑');
+  }, 1250);
 });
 
-song.addEventListener("play", () => {
-  playMusic.textContent = "❚❚ إيقاف مؤقت";
-});
+/* رسائل عائمة */
+function makeHeart() {
+  const h = document.createElement('span');
+  h.className = 'heart';
+  h.textContent = ['💗','✨','🌸','💕','✦'][Math.floor(Math.random()*5)];
+  h.style.left = Math.random() * 100 + 'vw';
+  h.style.fontSize = (15 + Math.random() * 18) + 'px';
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 3900);
+}
 
-song.addEventListener("pause", () => {
-  playMusic.textContent = "▶ تشغيل الأغنية";
-});
+/* عداد تاريخ الميلاد */
+const birthday = new Date('2026-10-12T00:00:00');
 
-song.addEventListener("error", () => {
-  musicMessage.textContent =
-    "مش لاقيين ملف kafa.mp3. اتأكدي إنه في نفس مجلد index.html وبنفس الاسم.";
-});
-
-window.addEventListener("load", () => {
-  typeLetter();
-  startSong();
-});
-
-/* تاريخ الميلاد */
-function updateBirthStatus() {
-  const birthDate = new Date("2026-10-12T00:00:00");
+function updateCountdown() {
   const now = new Date();
-  const diff = birthDate.getTime() - now.getTime();
-  const status = document.getElementById("birthStatus");
+  let diff = birthday - now;
+  const status = document.getElementById('birthdayStatus');
 
   if (diff > 0) {
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    status.textContent = "فاضل " + days + " يوم على يوم ميلاد الأميرة 🎂";
+    status.textContent = 'فاضل على اليوم المميز:';
+    document.getElementById('days').textContent = Math.floor(diff / 86400000);
+    document.getElementById('hours').textContent = Math.floor((diff % 86400000) / 3600000);
+    document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000);
+    document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000);
   } else {
-    status.textContent = "كل سنة وإنتي طيبة يا ليلي، يا أجمل أميرة! 🎂";
+    const sameDay = now.getFullYear() === 2026 &&
+      now.getMonth() === 9 && now.getDate() === 12;
+
+    if (sameDay) {
+      status.textContent = 'النهارده يوم الأميرة ليلي! كل سنة وإنتي نور المملكة 🎂';
+    } else {
+      status.textContent = 'يوم 12 أكتوبر 2026 كان بداية الحكاية الجميلة. 💗';
+    }
+
+    document.getElementById('days').textContent = '💗';
+    document.getElementById('hours').textContent = '✨';
+    document.getElementById('minutes').textContent = '👑';
+    document.getElementById('seconds').textContent = '🌸';
   }
 }
-updateBirthStatus();
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* احتفال عيد الميلاد */
+function celebrate() {
+  const burst = document.getElementById('birthdayBurst');
+  burst.innerHTML = '';
+  const bits = ['✨','🎉','💗','🌸','⭐','🎀','👑','🎂'];
+
+  for (let i = 0; i < 48; i++) {
+    const c = document.createElement('span');
+    c.className = 'confetti';
+    c.textContent = bits[Math.floor(Math.random() * bits.length)];
+    c.style.left = Math.random() * 100 + '%';
+    c.style.animationDelay = Math.random() * 1.5 + 's';
+    c.style.animationDuration = (2.4 + Math.random() * 2) + 's';
+    burst.appendChild(c);
+  }
+
+  toast('كل سنة والأميرة ليلي بألف خير! 🎂👑');
+  setTimeout(() => burst.innerHTML = '', 5500);
+}
+document.getElementById('birthdayButton').addEventListener('click', celebrate);
+
+/* أبواب القصر */
+const roomContent = document.getElementById('roomContent');
+const roomData = {
+  letter: {
+    title:'💌 غرفة الرسالة',
+    text:'في جواب صغير مكتوب مخصوص للأميرة. انزلي لجزء «جواب صغير للأميرة ليلي» واضغطي على الظرف عشان تقريه.'
+  },
+  family: {
+    title:'💗 غرفة العيلة',
+    text:'هتلاقي رسائل من ماما وبابا وخالتو بوبا، وكل رسالة فيها دعوة حلوة وحب كبير للأميرة.'
+  },
+  story: {
+    title:'📖 مكتبة الحكايات',
+    text:'افتحي فصول الحكاية واحد واحد، وكل فصل هياخدك لجزء جديد من مغامرة الأميرة ليلي.'
+  },
+  gifts: {
+    title:'🎁 غرفة الهدايا',
+    text:'قدامك تلات صناديق، كل واحد جواه مفاجأة مختلفة. اختاري صندوق وافتحيه!'
+  }
+};
+
+document.querySelectorAll('[data-room]').forEach(button => {
+  button.addEventListener('click', () => {
+    const room = roomData[button.dataset.room];
+    roomContent.innerHTML = '<strong style="color:var(--gold)">' +
+      room.title + '</strong><br>' + room.text;
+    roomContent.classList.remove('hidden');
+
+    const target = {
+      letter:'letterSection',
+      family:'familySection',
+      story:'storySection',
+      gifts:'giftsSection'
+    }[button.dataset.room];
+
+    document.getElementById(target).scrollIntoView({
+      behavior:'smooth', block:'start'
+    });
+  });
+});
+
+/* الرسالة المتحركة */
+const letter = 'يا ليلي يا أجمل هدية في الدنيا… 💗\\n\\nيمكن لسه الحكاية في أولها، لكن وجودك لوحده كفاية يخلي الأيام أحلى. أتمنالك حياة مليانة ضحك وراحة وناس طيبين حواليكي، وأيام تلاقي فيها الخير في كل خطوة.\\n\\nخلي قلبك دايمًا مليان أمل، ومتخليش حاجة تطفي نورك. إنتي أميرة تستاهل كل حاجة جميلة، وربنا يحفظك ويبارك في عمرك، وتفضلي دايمًا سبب فرحة لكل اللي بيحبوكي.\\n\\nمن كل قلبي… لمملكتك الصغيرة يا ليلي. 👑🌸';
+
+let letterOpened = false;
+let typingTimer;
+
+document.getElementById('openLetter').addEventListener('click', () => {
+  if (letterOpened) {
+    document.getElementById('letterText').textContent = letter;
+    document.getElementById('cursor').textContent = '';
+    return;
+  }
+
+  letterOpened = true;
+  const output = document.getElementById('letterText');
+  const cursor = document.getElementById('cursor');
+  output.textContent = '';
+  let index = 0;
+
+  function typeNext() {
+    if (index < letter.length) {
+      output.textContent += letter[index++];
+      typingTimer = setTimeout(typeNext, 34);
+    } else {
+      cursor.textContent = '';
+      toast('وصلت الرسالة للأميرة 💌');
+    }
+  }
+
+  cursor.textContent = '✦';
+  typeNext();
+});
+
+/* صناديق الهدايا */
+const gifts = [
+  '🎀 هديتك الأولى: دعوة من القلب إن ربنا يملأ أيامك راحة وفرحة، ويبعد عنك كل حزن، ويقرّب منك كل حاجة حلوة.',
+  '💎 هديتك التانية: افتكري دايمًا إنك تستاهلي المعاملة الطيبة، والكلام الحلو، والفرص الجميلة. خدي وقتك في أحلامك، وافتخري بكل خطوة بتعمليها.',
+  '👑 هديتك التالتة: لقبك الرسمي في المملكة هو «أميرة القلوب وصاحبة أجمل حكاية»! والكنز الحقيقي هو كل ذكرى حلوة هتعيشيها من هنا ورايح.'
+];
+
+document.querySelectorAll('[data-gift]').forEach(button => {
+  button.addEventListener('click', () => {
+    const index = Number(button.dataset.gift);
+    const result = document.getElementById('giftResult');
+    result.textContent = gifts[index];
+    result.classList.remove('hidden');
+    button.querySelector('.gift-icon').textContent = '💝';
+    button.querySelector('p').textContent = 'اتفتحت المفاجأة!';
+    toast('مفاجأة جديدة للأميرة! 🎁');
+  });
+});
+
+/* بئر الأمنيات */
+const wishes = [
+  'يا رب أيامك كلها تكون مليانة راحة وضحكة من القلب. 💗',
+  'يا رب كل حلم جميل في قلبك تلاقي طريق يوصّلك ليه. 🌟',
+  'يا رب يحاوطك الخير، ويحفظك من كل شر، ويرزقك راحة البال. 🌙',
+  'يا رب تفضلي دايمًا وسط ناس بتحبك وتقدّرك وتفرح لفرحتك. 🌸',
+  'يا رب كل يوم جديد يجيبلك سبب أحلى للابتسامة. 🎀',
+  'يا رب يفتحلك أبواب الخير، ويجعل قلبك مطمّن وأيامك جميلة. 👑'
+];
+
+let lastWish = -1;
+document.getElementById('wishButton').addEventListener('click', () => {
+  let n;
+  do { n = Math.floor(Math.random() * wishes.length); }
+  while (wishes.length > 1 && n === lastWish);
+  lastWish = n;
+
+  document.getElementById('wishText').textContent = wishes[n];
+  makeHeart();
+});
+
+/* جمع المفاتيح */
+let foundKeys = new Set();
+document.getElementById('findKey').addEventListener('click', () => {
+  if (foundKeys.size >= 3) {
+    toast('جمعتي المفاتيح كلها! افتحي الكنز 👑');
+    return;
+  }
+
+  let next = [0,1,2].find(i => !foundKeys.has(i));
+  foundKeys.add(next);
+  document.getElementById('key' + next).classList.add('found');
+
+  const messages = [
+    'لقيتي المفتاح الأول! 🗝️',
+    'المفتاح التاني بقى معاكي! ✨',
+    'جمعتي المفاتيح التلاتة! الكنز مستنيكي! 👑'
+  ];
+
+  toast(messages[foundKeys.size - 1]);
+
+  if (foundKeys.size === 3) {
+    document.getElementById('findKey').classList.add('hidden');
+    document.getElementById('openTreasure').classList.remove('hidden');
+  }
+});
+
+document.getElementById('openTreasure').addEventListener('click', () => {
+  const treasure = document.getElementById('treasureText');
+  treasure.innerHTML =
+    '<div style="font-size:45px">👑💎✨</div>' +
+    '<strong style="color:var(--gold)">الكنز الملكي اتفتح!</strong><br>' +
+    'أغلى كنز في المملكة مش دهب ولا جواهر… أغلى كنز هو قلبك الطيب، وضحكتك الجميلة، وكل الأيام الحلوة اللي لسه مستنياكي. ' +
+    'ربنا يحفظك يا ليلي ويكتبلك مستقبل أجمل من كل أحلامك. 💗';
+  treasure.classList.remove('hidden');
+  celebrate();
+});
+
+/* لمسات هادية */
+setInterval(() => {
+  if (!document.hidden && Math.random() > .35) makeHeart();
+}, 9000);
 </script>
 </body>
 </html>
